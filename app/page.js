@@ -1,95 +1,64 @@
 import Image from "next/image";
-import styles from "./page.module.css";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    <div className="list">
+      <h1>Components List</h1>
+      <br />
+      <a className="text" href="/homepage">
+        <p>Homepage</p>
+      </a>
+      <a className="text" href="/product/details">
+        <p>Product Detail</p>
+      </a>
+      <a className="text" href="/cart">
+        <p>Cart</p>
+      </a>
+      <a className="text" href="/login">
+        <p>Login</p>
+      </a>
+      <a className="text" href="/register">
+        <p>Register</p>
+      </a>
+      <a className="text" href="/shipping">
+        <p>Shipping</p>
+      </a>
+      <a className="text" href="/profile">
+        <p>Profile</p>
+      </a>
+      <a className="text" href="/profile/add/address">
+        <p>Add new address</p>
+      </a>
+      <a className="text" href="/profile/update">
+        <p>Update Profile</p>
+      </a>
+      <a className="text" href="/update/password">
+        <p>Update Password</p>
+      </a>
+      <a className="text" href="/user/orders">
+        <p>User Order</p>
+      </a>
+      <a className="text" href="/product/new">
+        <p>New Product</p>
+      </a>
+      <a className="text" href="/product/all">
+        <p>All Products Admin</p>
+      </a>
+      <a className="text" href="/upload/images">
+        <p>Upload images</p>
+      </a>
+      <a className="text" href="/orders/admin">
+        <p>Orders Admin</p>
+      </a>
+      <a className="text" href="/order/update">
+        <p>Update Order</p>
+      </a>
+      <a className="text" href="/users/admin">
+        <p>Users Admin</p>
+      </a>
+      <a className="text" href="/update/users/admin">
+        <p>Update User Admin</p>
+      </a>
+    </div>
   );
 }
