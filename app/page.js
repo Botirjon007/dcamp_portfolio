@@ -2,14 +2,16 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="list">
-      <h1>Components List</h1>
+    <div className="mt-5 d-flex flex-column  align-items-center">
+      <h1>
+        <strong>Components List</strong>
+      </h1>
       <br />
       <a className="text" href="/homepage">
         <p>Homepage</p>
       </a>
-      <a className="text" href="/product/details">
-        <p>Product Detail</p>
+      <a className="text" href="/product">
+        <p>Product Details</p>
       </a>
       <a className="text" href="/cart">
         <p>Cart</p>
@@ -26,7 +28,7 @@ export default function Home() {
       <a className="text" href="/profile">
         <p>Profile</p>
       </a>
-      <a className="text" href="/profile/add/address">
+      <a className="text" href="addnewaddress">
         <p>Add new address</p>
       </a>
       <a className="text" href="/profile/update">

@@ -1,0 +1,100 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.game-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.color-options {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.color-option {
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  cursor: pointer;
+}
+
+button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #009688;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #00796b;
+}
+
+.color-option {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 5px solid #333; /* Add border to circles */
+   
+    background-size: cover;
+  }
+  
+  .color-option span {
+    position: absolute;
+    visibility: hidden;
+  }
+  
+  .color-option:hover span {
+    visibility: visible;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px;
+    border-radius: 5px;
+  }
+
+  /* Default styles for desktop */
+.color-option {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+  }
+  
+  /* Media queries for mobile devices */
+  @media only screen and (max-width: 600px) {
+    .color-options {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .color-option {
+      width: 80px;
+      height: 80px;
+      margin: 5px;
+    }
+  
+    button {
+      width: 80%;
+      margin: 10px auto;
+    }
+  }
