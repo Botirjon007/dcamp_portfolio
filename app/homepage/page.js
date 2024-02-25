@@ -12,7 +12,7 @@ export default function Homepage() {
           <div className="container-fluid ">
             <form className="d-flex" role="search">
               <className
-                className="form-control me-2 secondary-text"
+                className="form-control me-2 secondary-text "
                 type="search"
                 placeholder="Enter your keywords"
                 aria-label="Search"
