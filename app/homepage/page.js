@@ -1,1094 +1,1177 @@
+import React from "react";
+
 export default function Homepage() {
   return (
-    <div className="m-wrapper">
-      <nav className="d-flex navbar bg-body-tertiary">
-        <div className="nav-left">
-          <img
-            src="./logo192.png"
-            className="starred"
-            alt="logo"
-            style={{ width: "60px", height: "50px" }}
-          />
-          <div className="container-fluid ">
-            <form className="d-flex" role="search">
-              <className
-                className="form-control me-2 secondary-text "
-                type="search"
-                placeholder="Enter your keywords"
-                aria-label="Search"
-                style={{ width: "537px", height: "43px" }} // Adjust the width as needed
+    <div>
+      <header className="container max-w-screen-xl mx-auto px-4">
+        <div className="container mx-auto px-4">
+          <div className="flex justify-between items-center">
+            <div className="flex items-center">
+              <a href="/">
+                <img
+                  src="logo192.png"
+                  height="40"
+                  width="120"
+                  alt="BuyItNow"
+                  style={{ height: "50px", width: "60px" }}
+                />
+              </a>
+            </div>
+            <div className="hidden md:flex items-center flex-grow">
+              <input
+                className="m-2 appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-533 h-41 "
+                type="text"
+                placeholder="Enter your keyword"
+                required=""
+                style={{ height: "41px", width: "533px" }}
               />
               <button
-                className="btn btn-primary"
-                type="submit"
-                style={{ width: "81px", height: "41px" }}
+                type="button"
+                className="px-3 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700"
               >
                 Search
               </button>
-            </form>
-          </div>
-        </div>
-        <div className="nav-right">
-          <button
-            type="button"
-            className="btn btn-light border btn-custom"
-            style={{ width: "81px", height: "41px", borderColor: "#f1f2f4" }}
-          >
-            Cart<b style={{ marginLeft: "5px" }}>(0)</b>
-          </button>
-          <button
-            type="button"
-            className="btn btn-light border  btn-custom"
-            style={{ width: "81px", height: "41px", borderColor: "#f1f2f4" }}
-          >
-            Sign in
-          </button>
-          <img
-            src="./logo192.png"
-            className="starred"
-            alt="logo"
-            style={{ width: "40px", height: "40px" }}
-          />
-          <div className="email">
-            <p style={{ marginBottom: "2px" }}>
-              <b>Ghulam</b>
-            </p>
-            <p style={{ color: "gray", marginBottom: "0" }}>test@gmail.com</p>
-          </div>
-        </div>
-        <hr className="line" />
-      </nav>
-      <section className="value py-12 bg-gray mx-1">
-        <div className="mx-2 aside-right flex justify-center border border-gray-200 bg-white rounded shadow-sm text-yellow-900">
-          <div class="mx-0">
-            <div className="m-4 ">
-              <img
-                src="./logo192.png"
-                className="starred"
-                alt="logo"
-                style={{ width: "160px", height: "150px" }}
-              />
-            </div>
-            <p className="m-5">
-              Lorem Ipsum is simply dummy text <br /> <br />
-              <svg
-                viewBox="0 0 51 48"
-                className="widget-svg"
-                style={{
-                  width: "20px",
-                  height: "20px",
-                  transition: "transform 0.2s ease-in-out 0s",
-                }}
-              >
-                <path
-                  className="star"
-                  d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
-                  style={{
-                    fill: "rgb(255, 184, 41)",
-                    transition: "fill 0.2s ease-in-out 0s",
-                  }}
-                ></path>
-              </svg>
-              <svg
-                viewBox="0 0 51 48"
-                className="widget-svg"
-                style={{
-                  width: "20px",
-                  height: "20px",
-                  transition: "transform 0.2s ease-in-out 0s",
-                }}
-              >
-                <path
-                  className="star"
-                  d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
-                  style={{
-                    fill: "rgb(255, 184, 41)",
-                    transition: "fill 0.2s ease-in-out 0s",
-                  }}
-                ></path>
-              </svg>
-              <svg
-                viewBox="0 0 51 48"
-                className="widget-svg"
-                style={{
-                  width: "20px",
-                  height: "20px",
-                  transition: "transform 0.2s ease-in-out 0s",
-                }}
-              >
-                <path
-                  className="star"
-                  d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
-                  style={{
-                    fill: "rgb(255, 184, 41)",
-                    transition: "fill 0.2s ease-in-out 0s",
-                  }}
-                ></path>
-              </svg>
-              <svg
-                viewBox="0 0 51 48"
-                className="widget-svg"
-                style={{
-                  width: "20px",
-                  height: "20px",
-                  transition: "transform 0.2s ease-in-out 0s",
-                }}
-              >
-                <path
-                  className="star"
-                  d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
-                  style={{
-                    fill: "rgb(255, 184, 41)",
-                    transition: "fill 0.2s ease-in-out 0s",
-                  }}
-                ></path>
-              </svg>
-              <svg
-                viewBox="0 0 51 48"
-                className="widget-svg"
-                style={{
-                  width: "20px",
-                  height: "20px",
-                  transition: "transform 0.2s ease-in-out 0s",
-                }}
-              >
-                <path
-                  className="star"
-                  d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
-                  style={{
-                    fill: "rgb(255, 184, 41)",
-                    transition: "fill 0.2s ease-in-out 0s",
-                  }}
-                ></path>
-              </svg>
-              • 5 <br /> <br />
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s.
-            </p>
-            <div className="border p-4 ">
-              <h1>$989</h1>
-              <p class="text-success"> Free Shipping</p>
-              <button
-                className="btn btn-primary px-4 "
-                style={{
-                  width: "114px",
-                  height: "41px",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  fontSize: "11.7px",
-                  padding: "0",
-                }}
-              >
-                Add to Cart
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <aside className="responsive-sidebar">
-          <div className="d-flex container mx-auto max-w-screen-xl mt-5">
-            <div
-              className="m-0 d-grid justify md:block px-6 py-4 border border-gray-200 bg-white rounded shadow-sm text-yellow-900 mx-3"
-              style={{ width: "288px", height: "121px" }}
-            >
-              <h3 className="font-semibold mb-">Price($)</h3>
-              <div className="d-flex justify-content-center">
-                <div className="mb-4">
-                  <className
-                    className="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-2 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full fs-7"
-                    style={{ width: "74px", height: "41px" }}
-                    type="number"
-                    placeholder="Min"
-                    placeholder="Enter your keyword "
-                    wfd-id="id2 "
-                  />
-                </div>
-                <div className="mb-4 mx-2">
-                  <className
-                    className="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-2 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full fs-7"
-                    style={{ width: "74px", height: "41px" }}
-                    type="number"
-                    placeholder="Max"
-                    wfd-id="id2"
-                  />
-                </div>
-                <div className="mb-4">
-                  <button
-                    className="btn btn-primary px-4 "
-                    style={{
-                      width: "74px",
-                      height: "41px",
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
-                  >
-                    Go
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            className="d-flex flex-column mt-0 px-6 py-4 border border-gray-200 bg-white rounded shadow-sm text-gray-900"
-            style={{ width: "286px", height: "387px", marginLeft: "8.3rem" }}
-          >
-            <h3 className="font-semibold mb-0">Category</h3>
-            <div className="d-flex flex-column" style={{ marginLeft: "23px" }}>
-              <br />
-              <div class="form-check">
-                <className
-                  class="form-check-className"
-                  type="checkbox"
-                  value=""
-                  id="flexCheckElectronics"
-                />
-                <label class="form-check-label " for="flexCheckDefault">
-                  Electronics
-                </label>
-              </div>
-              <div class="form-check">
-                <className
-                  class="form-check-className"
-                  type="checkbox"
-                  value=""
-                  id="flexCheckDefault"
-                />
-                <label class="form-check-label" for="flexCheckDefault">
-                  Laptops
-                </label>
-              </div>
-              <div class="form-check">
-                <className
-                  class="form-check-className"
-                  type="checkbox"
-                  value=""
-                  id="flexCheckDefault"
-                />
-                <label class="form-check-label" for="flexCheckDefault">
-                  Toys
-                </label>
-              </div>
-              <div class="form-check">
-                <className
-                  class="form-check-className"
-                  type="checkbox"
-                  value=""
-                  id="flexCheckDefault"
-                />
-                <label class="form-check-label" for="flexCheckDefault">
-                  Office
-                </label>
-              </div>
-              <div class="form-check">
-                <className
-                  class="form-check-className"
-                  type="checkbox"
-                  value=""
-                  id="flexCheckDefault"
-                />
-                <label class="form-check-label" for="flexCheckDefault">
-                  Beauty
-                </label>
-              </div>
-              <hr className="value-line my-4" />
             </div>
 
-            <h3 class="font-semibold mb-2">Ratings</h3>
-
-            <ul className="space-y-1">
-              <li className="d-flex flex-column gap-4 ">
-                <label className="flex items-center">
-                  <className
-                    name="ratings"
-                    type="checkbox"
-                    className="h-4 w-4"
-                    value="5"
-                  />
-                  <span className="ml-2 text-gray-500">
-                    <div className="star-ratings" title="5 Stars">
-                      <div
-                        className="star-container"
-                        style={{
-                          position: "relative",
-                          display: "inline-block",
-                          verticalAlign: "middle",
-                          paddingRight: "2px",
-                        }}
-                      >
-                        <svg
-                          viewBox="0 0 51 48"
-                          className="widget-svg"
-                          style={{
-                            width: "20px",
-                            height: "20px",
-                            transition: "transform 0.2s ease-in-out 0s",
-                          }}
-                        >
-                          <path
-                            className="star"
-                            d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
-                            style={{
-                              fill: "rgb(255, 184, 41)",
-                              transition: "fill 0.2s ease-in-out 0s",
-                            }}
-                          ></path>
-                        </svg>
-                      </div>
-                      <div
-                        className="star-container"
-                        style={{
-                          position: "relative",
-                          display: "inline-block",
-                          verticalAlign: "middle",
-                          paddingLeft: "2px",
-                          paddingRight: "2px",
-                        }}
-                      >
-                        <svg
-                          viewBox="0 0 51 48"
-                          className="widget-svg"
-                          style={{
-                            width: "20px",
-                            height: "20px",
-                            transition: "transform 0.2s ease-in-out 0s",
-                          }}
-                        >
-                          <path
-                            className="star"
-                            d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
-                            style={{
-                              fill: "rgb(255, 184, 41)",
-                              transition: "fill 0.2s ease-in-out 0s",
-                            }}
-                          ></path>
-                        </svg>
-                      </div>
-                      <div
-                        className="star-container"
-                        style={{
-                          position: "relative",
-                          display: "inline-block",
-                          verticalAlign: "middle",
-                          paddingLeft: "2px",
-                          paddingRight: "2px",
-                        }}
-                      >
-                        <svg
-                          viewBox="0 0 51 48"
-                          className="widget-svg"
-                          style={{
-                            width: "20px",
-                            height: "20px",
-                            transition: "transform 0.2s ease-in-out 0s",
-                          }}
-                        >
-                          <path
-                            className="star"
-                            d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
-                            style={{
-                              fill: "rgb(255, 184, 41)",
-                              transition: "fill 0.2s ease-in-out 0s",
-                            }}
-                          ></path>
-                        </svg>
-                      </div>
-                      <div
-                        className="star-container"
-                        style={{
-                          position: "relative",
-                          display: "inline-block",
-                          verticalAlign: "middle",
-                          paddingLeft: "2px",
-                          paddingRight: "2px",
-                        }}
-                      >
-                        <svg
-                          viewBox="0 0 51 48"
-                          className="widget-svg"
-                          style={{
-                            width: "20px",
-                            height: "20px",
-                            transition: "transform 0.2s ease-in-out 0s",
-                          }}
-                        >
-                          <path
-                            className="star"
-                            d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
-                            style={{
-                              fill: "rgb(255, 184, 41)",
-                              transition: "fill 0.2s ease-in-out 0s",
-                            }}
-                          ></path>
-                        </svg>
-                      </div>
-                      <div
-                        className="star-container"
-                        style={{
-                          position: "relative",
-                          display: "inline-block",
-                          verticalAlign: "middle",
-                          paddingLeft: "2px",
-                        }}
-                      >
-                        <svg
-                          viewBox="0 0 51 48"
-                          className="widget-svg"
-                          style={{
-                            width: "20px",
-                            height: "20px",
-                            transition: "transform 0.2s ease-in-out 0s",
-                          }}
-                        >
-                          <path
-                            className="star"
-                            d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
-                            style={{
-                              fill: "rgb(255, 184, 41)",
-                              transition: "fill 0.2s ease-in-out 0s",
-                            }}
-                          ></path>
-                        </svg>
-                      </div>
-                    </div>
-                  </span>
-                </label>
-              </li>
-              <li className="d-flex flex-column gap-4 ">
-                <label className="flex items-center">
-                  <className
-                    name="ratings"
-                    type="checkbox"
-                    className="h-4 w-4"
-                    value="5"
-                  />
-                  <span className="ml-2 text-gray-500">
-                    <div className="star-ratings" title="5 Stars">
-                      <div
-                        className="star-container"
-                        style={{
-                          position: "relative",
-                          display: "inline-block",
-                          verticalAlign: "middle",
-                          paddingRight: "2px",
-                        }}
-                      >
-                        <svg
-                          viewBox="0 0 51 48"
-                          className="widget-svg"
-                          style={{
-                            width: "20px",
-                            height: "20px",
-                            transition: "transform 0.2s ease-in-out 0s",
-                          }}
-                        >
-                          <path
-                            className="star"
-                            d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
-                            style={{
-                              fill: "rgb(255, 184, 41)",
-                              transition: "fill 0.2s ease-in-out 0s",
-                            }}
-                          ></path>
-                        </svg>
-                      </div>
-                      <div
-                        className="star-container"
-                        style={{
-                          position: "relative",
-                          display: "inline-block",
-                          verticalAlign: "middle",
-                          paddingLeft: "2px",
-                          paddingRight: "2px",
-                        }}
-                      >
-                        <svg
-                          viewBox="0 0 51 48"
-                          className="widget-svg"
-                          style={{
-                            width: "20px",
-                            height: "20px",
-                            transition: "transform 0.2s ease-in-out 0s",
-                          }}
-                        >
-                          <path
-                            className="star"
-                            d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
-                            style={{
-                              fill: "rgb(255, 184, 41)",
-                              transition: "fill 0.2s ease-in-out 0s",
-                            }}
-                          ></path>
-                        </svg>
-                      </div>
-                      <div
-                        className="star-container"
-                        style={{
-                          position: "relative",
-                          display: "inline-block",
-                          verticalAlign: "middle",
-                          paddingLeft: "2px",
-                          paddingRight: "2px",
-                        }}
-                      >
-                        <svg
-                          viewBox="0 0 51 48"
-                          className="widget-svg"
-                          style={{
-                            width: "20px",
-                            height: "20px",
-                            transition: "transform 0.2s ease-in-out 0s",
-                          }}
-                        >
-                          <path
-                            className="star"
-                            d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
-                            style={{
-                              fill: "rgb(255, 184, 41)",
-                              transition: "fill 0.2s ease-in-out 0s",
-                            }}
-                          ></path>
-                        </svg>
-                      </div>
-                      <div
-                        className="star-container"
-                        style={{
-                          position: "relative",
-                          display: "inline-block",
-                          verticalAlign: "middle",
-                          paddingLeft: "2px",
-                          paddingRight: "2px",
-                        }}
-                      >
-                        <svg
-                          viewBox="0 0 51 48"
-                          className="widget-svg"
-                          style={{
-                            width: "20px",
-                            height: "20px",
-                            transition: "transform 0.2s ease-in-out 0s",
-                          }}
-                        >
-                          <path
-                            className="star"
-                            d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
-                            style={{
-                              fill: "rgb(255, 184, 41)",
-                              transition: "fill 0.2s ease-in-out 0s",
-                            }}
-                          ></path>
-                        </svg>
-                      </div>
-                      <div
-                        className="star-container"
-                        style={{
-                          position: "relative",
-                          display: "inline-block",
-                          verticalAlign: "middle",
-                          paddingLeft: "2px",
-                        }}
-                      >
-                        <svg
-                          viewBox="0 0 51 48"
-                          className="widget-svg"
-                          style={{
-                            width: "20px",
-                            height: "20px",
-                            transition: "transform 0.2s ease-in-out 0s",
-                          }}
-                        >
-                          <path
-                            className="star"
-                            d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
-                            style={{
-                              fill: "rgb(255, 184, 41)",
-                              transition: "fill 0.2s ease-in-out 0s",
-                            }}
-                          ></path>
-                        </svg>
-                      </div>
-                    </div>
-                  </span>
-                </label>
-              </li>
-              <li className="d-flex flex-column gap-4 ">
-                <label className="flex items-center">
-                  <className
-                    name="ratings"
-                    type="checkbox"
-                    className="h-4 w-4"
-                    value="5"
-                  />
-                  <span className="ml-2 text-gray-500">
-                    <div className="star-ratings" title="5 Stars">
-                      <div
-                        className="star-container"
-                        style={{
-                          position: "relative",
-                          display: "inline-block",
-                          verticalAlign: "middle",
-                          paddingRight: "2px",
-                        }}
-                      >
-                        <svg
-                          viewBox="0 0 51 48"
-                          className="widget-svg"
-                          style={{
-                            width: "20px",
-                            height: "20px",
-                            transition: "transform 0.2s ease-in-out 0s",
-                          }}
-                        >
-                          <path
-                            className="star"
-                            d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
-                            style={{
-                              fill: "rgb(255, 184, 41)",
-                              transition: "fill 0.2s ease-in-out 0s",
-                            }}
-                          ></path>
-                        </svg>
-                      </div>
-                      <div
-                        className="star-container"
-                        style={{
-                          position: "relative",
-                          display: "inline-block",
-                          verticalAlign: "middle",
-                          paddingLeft: "2px",
-                          paddingRight: "2px",
-                        }}
-                      >
-                        <svg
-                          viewBox="0 0 51 48"
-                          className="widget-svg"
-                          style={{
-                            width: "20px",
-                            height: "20px",
-                            transition: "transform 0.2s ease-in-out 0s",
-                          }}
-                        >
-                          <path
-                            className="star"
-                            d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
-                            style={{
-                              fill: "rgb(255, 184, 41)",
-                              transition: "fill 0.2s ease-in-out 0s",
-                            }}
-                          ></path>
-                        </svg>
-                      </div>
-                      <div
-                        className="star-container"
-                        style={{
-                          position: "relative",
-                          display: "inline-block",
-                          verticalAlign: "middle",
-                          paddingLeft: "2px",
-                          paddingRight: "2px",
-                        }}
-                      >
-                        <svg
-                          viewBox="0 0 51 48"
-                          className="widget-svg"
-                          style={{
-                            width: "20px",
-                            height: "20px",
-                            transition: "transform 0.2s ease-in-out 0s",
-                          }}
-                        >
-                          <path
-                            className="star"
-                            d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
-                            style={{
-                              fill: "rgb(255, 184, 41)",
-                              transition: "fill 0.2s ease-in-out 0s",
-                            }}
-                          ></path>
-                        </svg>
-                      </div>
-                      <div
-                        className="star-container"
-                        style={{
-                          position: "relative",
-                          display: "inline-block",
-                          verticalAlign: "middle",
-                          paddingLeft: "2px",
-                          paddingRight: "2px",
-                        }}
-                      >
-                        <svg
-                          viewBox="0 0 51 48"
-                          className="widget-svg"
-                          style={{
-                            width: "20px",
-                            height: "20px",
-                            transition: "transform 0.2s ease-in-out 0s",
-                          }}
-                        >
-                          <path
-                            className="star"
-                            d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
-                            style={{
-                              fill: "rgb(255, 184, 41)",
-                              transition: "fill 0.2s ease-in-out 0s",
-                            }}
-                          ></path>
-                        </svg>
-                      </div>
-                      <div
-                        className="star-container"
-                        style={{
-                          position: "relative",
-                          display: "inline-block",
-                          verticalAlign: "middle",
-                          paddingLeft: "2px",
-                        }}
-                      >
-                        <svg
-                          viewBox="0 0 51 48"
-                          className="widget-svg"
-                          style={{
-                            width: "20px",
-                            height: "20px",
-                            transition: "transform 0.2s ease-in-out 0s",
-                          }}
-                        >
-                          <path
-                            className="star"
-                            d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
-                            style={{
-                              fill: "rgb(255, 184, 41)",
-                              transition: "fill 0.2s ease-in-out 0s",
-                            }}
-                          ></path>
-                        </svg>
-                      </div>
-                    </div>
-                  </span>
-                </label>
-              </li>
-              <li className="d-flex flex-column gap-4 ">
-                <label className="flex items-center">
-                  <className
-                    name="ratings"
-                    type="checkbox"
-                    className="h-4 w-4"
-                    value="5"
-                  />
-                  <span className="ml-2 text-gray-500">
-                    <div className="star-ratings" title="5 Stars">
-                      <div
-                        className="star-container"
-                        style={{
-                          position: "relative",
-                          display: "inline-block",
-                          verticalAlign: "middle",
-                          paddingRight: "2px",
-                        }}
-                      >
-                        <svg
-                          viewBox="0 0 51 48"
-                          className="widget-svg"
-                          style={{
-                            width: "20px",
-                            height: "20px",
-                            transition: "transform 0.2s ease-in-out 0s",
-                          }}
-                        >
-                          <path
-                            className="star"
-                            d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
-                            style={{
-                              fill: "rgb(255, 184, 41)",
-                              transition: "fill 0.2s ease-in-out 0s",
-                            }}
-                          ></path>
-                        </svg>
-                      </div>
-                      <div
-                        className="star-container"
-                        style={{
-                          position: "relative",
-                          display: "inline-block",
-                          verticalAlign: "middle",
-                          paddingLeft: "2px",
-                          paddingRight: "2px",
-                        }}
-                      >
-                        <svg
-                          viewBox="0 0 51 48"
-                          className="widget-svg"
-                          style={{
-                            width: "20px",
-                            height: "20px",
-                            transition: "transform 0.2s ease-in-out 0s",
-                          }}
-                        >
-                          <path
-                            className="star"
-                            d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
-                            style={{
-                              fill: "rgb(255, 184, 41)",
-                              transition: "fill 0.2s ease-in-out 0s",
-                            }}
-                          ></path>
-                        </svg>
-                      </div>
-                      <div
-                        className="star-container"
-                        style={{
-                          position: "relative",
-                          display: "inline-block",
-                          verticalAlign: "middle",
-                          paddingLeft: "2px",
-                          paddingRight: "2px",
-                        }}
-                      >
-                        <svg
-                          viewBox="0 0 51 48"
-                          className="widget-svg"
-                          style={{
-                            width: "20px",
-                            height: "20px",
-                            transition: "transform 0.2s ease-in-out 0s",
-                          }}
-                        >
-                          <path
-                            className="star"
-                            d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
-                            style={{
-                              fill: "rgb(255, 184, 41)",
-                              transition: "fill 0.2s ease-in-out 0s",
-                            }}
-                          ></path>
-                        </svg>
-                      </div>
-                      <div
-                        className="star-container"
-                        style={{
-                          position: "relative",
-                          display: "inline-block",
-                          verticalAlign: "middle",
-                          paddingLeft: "2px",
-                          paddingRight: "2px",
-                        }}
-                      >
-                        <svg
-                          viewBox="0 0 51 48"
-                          className="widget-svg"
-                          style={{
-                            width: "20px",
-                            height: "20px",
-                            transition: "transform 0.2s ease-in-out 0s",
-                          }}
-                        >
-                          <path
-                            className="star"
-                            d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
-                            style={{
-                              fill: "rgb(255, 184, 41)",
-                              transition: "fill 0.2s ease-in-out 0s",
-                            }}
-                          ></path>
-                        </svg>
-                      </div>
-                      <div
-                        className="star-container"
-                        style={{
-                          position: "relative",
-                          display: "inline-block",
-                          verticalAlign: "middle",
-                          paddingLeft: "2px",
-                        }}
-                      >
-                        <svg
-                          viewBox="0 0 51 48"
-                          className="widget-svg"
-                          style={{
-                            width: "20px",
-                            height: "20px",
-                            transition: "transform 0.2s ease-in-out 0s",
-                          }}
-                        >
-                          <path
-                            className="star"
-                            d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
-                            style={{
-                              fill: "rgb(255, 184, 41)",
-                              transition: "fill 0.2s ease-in-out 0s",
-                            }}
-                          ></path>
-                        </svg>
-                      </div>
-                    </div>
-                  </span>
-                </label>
-              </li>
-              <li className="d-flex flex-column gap-4 ">
-                <label className="flex items-center">
-                  <className
-                    name="ratings"
-                    type="checkbox"
-                    className="h-4 w-4"
-                    value="5"
-                  />
-                  <span className="ml-2 text-gray-500">
-                    <div className="star-ratings" title="5 Stars">
-                      <div
-                        className="star-container"
-                        style={{
-                          position: "relative",
-                          display: "inline-block",
-                          verticalAlign: "middle",
-                          paddingRight: "2px",
-                        }}
-                      >
-                        <svg
-                          viewBox="0 0 51 48"
-                          className="widget-svg"
-                          style={{
-                            width: "20px",
-                            height: "20px",
-                            transition: "transform 0.2s ease-in-out 0s",
-                          }}
-                        >
-                          <path
-                            className="star"
-                            d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
-                            style={{
-                              fill: "rgb(255, 184, 41)",
-                              transition: "fill 0.2s ease-in-out 0s",
-                            }}
-                          ></path>
-                        </svg>
-                      </div>
-                      <div
-                        className="star-container"
-                        style={{
-                          position: "relative",
-                          display: "inline-block",
-                          verticalAlign: "middle",
-                          paddingLeft: "2px",
-                          paddingRight: "2px",
-                        }}
-                      >
-                        <svg
-                          viewBox="0 0 51 48"
-                          className="widget-svg"
-                          style={{
-                            width: "20px",
-                            height: "20px",
-                            transition: "transform 0.2s ease-in-out 0s",
-                          }}
-                        >
-                          <path
-                            className="star"
-                            d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
-                            style={{
-                              fill: "rgb(255, 184, 41)",
-                              transition: "fill 0.2s ease-in-out 0s",
-                            }}
-                          ></path>
-                        </svg>
-                      </div>
-                      <div
-                        className="star-container"
-                        style={{
-                          position: "relative",
-                          display: "inline-block",
-                          verticalAlign: "middle",
-                          paddingLeft: "2px",
-                          paddingRight: "2px",
-                        }}
-                      >
-                        <svg
-                          viewBox="0 0 51 48"
-                          className="widget-svg"
-                          style={{
-                            width: "20px",
-                            height: "20px",
-                            transition: "transform 0.2s ease-in-out 0s",
-                          }}
-                        >
-                          <path
-                            className="star"
-                            d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
-                            style={{
-                              fill: "rgb(255, 184, 41)",
-                              transition: "fill 0.2s ease-in-out 0s",
-                            }}
-                          ></path>
-                        </svg>
-                      </div>
-                      <div
-                        className="star-container"
-                        style={{
-                          position: "relative",
-                          display: "inline-block",
-                          verticalAlign: "middle",
-                          paddingLeft: "2px",
-                          paddingRight: "2px",
-                        }}
-                      >
-                        <svg
-                          viewBox="0 0 51 48"
-                          className="widget-svg"
-                          style={{
-                            width: "20px",
-                            height: "20px",
-                            transition: "transform 0.2s ease-in-out 0s",
-                          }}
-                        >
-                          <path
-                            className="star"
-                            d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
-                            style={{
-                              fill: "rgb(255, 184, 41)",
-                              transition: "fill 0.2s ease-in-out 0s",
-                            }}
-                          ></path>
-                        </svg>
-                      </div>
-                      <div
-                        className="star-container"
-                        style={{
-                          position: "relative",
-                          display: "inline-block",
-                          verticalAlign: "middle",
-                          paddingLeft: "2px",
-                        }}
-                      >
-                        <svg
-                          viewBox="0 0 51 48"
-                          className="widget-svg"
-                          style={{
-                            width: "20px",
-                            height: "20px",
-                            transition: "transform 0.2s ease-in-out 0s",
-                          }}
-                        >
-                          <path
-                            className="star"
-                            d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
-                            style={{
-                              fill: "rgb(255, 184, 41)",
-                              transition: "fill 0.2s ease-in-out 0s",
-                            }}
-                          ></path>
-                        </svg>
-                      </div>
-                    </div>
-                  </span>
-                </label>
-              </li>
-            </ul>
+            <div className="flex items-center space-x-3">
+              <a
+                href="/cart"
+                className="text-gray-700 hover:text-gray-900 border border-gray-300 rounded-md px-3 py-2"
+              >
+                <i className="fas fa-shopping-cart mr-1"></i>
+                Cart (0)
+              </a>
+              <a
+                href="/login"
+                className="text-gray-700 hover:text-gray-900 border border-gray-300 rounded-md px-3 py-2"
+              >
+                <i className="fas fa-user mr-1"></i>
+                Sign in
+              </a>
+              <a href="/ge" className="flex items-center">
+                <img
+                  className="w-10 h-10 rounded-full mr-2"
+                  src="logo192.png"
+                  alt="User Image"
+                />
+                <div>
+                  <p className="text-gray-700 font-medium">Ghulam</p>
+                  <p className="text-gray-500 text-sm">test@gmail.com</p>
+                </div>
+              </a>
+            </div>
           </div>
-        </aside>
-      </section>
+          <hr className="line w-full" />
+          <section className="mt-2">
+            <div className="container max-w-screen-xl mx-auto px-4">
+              <div className="flex flex-col md:flex-row -mx-4">
+                <aside className="md:w-1/3 lg:w-1/4 px-4">
+                  <div className="hidden md:block px-6 py-4 border border-gray-200 bg-white rounded shadow-sm">
+                    <h3 className="font-semibold mb-2">Price ($)</h3>
+                    <div className="grid md:grid-cols-3 gap-x-2">
+                      <div className="mb-4">
+                        <input
+                          name="min"
+                          className="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"
+                          type="number"
+                          placeholder="Min"
+                        />
+                      </div>
+                      <div className="mb-4">
+                        <input
+                          name="max"
+                          className="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"
+                          type="number"
+                          placeholder="Max"
+                        />
+                      </div>
+                      <div className="mb-4">
+                        <button className="px-1 py-2 text-center w-full inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700">
+                          Go
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="hidden md:block px-6 py-4 border border-gray-200 bg-white rounded shadow-sm">
+                    <h3 className="font-semibold mb-2">Category</h3>
+                    <ul className="space-y-1">
+                      <li>
+                        <label className="flex items-center">
+                          <input
+                            name="category"
+                            type="checkbox"
+                            className="h-4 w-4"
+                            value="Electronics"
+                          />
+                          <span className="ml-2 text-gray-500">
+                            {" "}
+                            Electronics{" "}
+                          </span>
+                        </label>
+                      </li>
+                      <li>
+                        <label className="flex items-center">
+                          <input
+                            name="category"
+                            type="checkbox"
+                            className="h-4 w-4"
+                            value="Laptops"
+                          />
+                          <span className="ml-2 text-gray-500"> Laptops </span>
+                        </label>
+                      </li>
+                      <li>
+                        <label className="flex items-center">
+                          <input
+                            name="category"
+                            type="checkbox"
+                            className="h-4 w-4"
+                            value="Toys"
+                          />
+                          <span className="ml-2 text-gray-500"> Toys </span>
+                        </label>
+                      </li>
+                      <li>
+                        <label className="flex items-center">
+                          <input
+                            name="category"
+                            type="checkbox"
+                            className="h-4 w-4"
+                            value="Office"
+                          />
+                          <span className="ml-2 text-gray-500"> Office </span>
+                        </label>
+                      </li>
+                      <li>
+                        <label className="flex items-center">
+                          <input
+                            name="category"
+                            type="checkbox"
+                            className="h-4 w-4"
+                            value="Beauty"
+                          />
+                          <span className="ml-2 text-gray-500"> Beauty </span>
+                        </label>
+                      </li>
+                    </ul>
+                    <hr className="my-4" />
+                    <h3 className="font-semibold mb-2">Ratings</h3>
+                    <ul className="space-y-1">
+                      <li>
+                        <label className="flex items-center">
+                          <input
+                            name="ratings"
+                            type="checkbox"
+                            className="h-4 w-4"
+                            value="5"
+                          />
+                          <span className="ml-2 text-gray-500">
+                            <div className="star-ratings" title="5 Stars">
+                              <div
+                                className="star-container"
+                                style={{
+                                  position: "relative",
+                                  display: "inline-block",
+                                  verticalAlign: "middle",
+                                  paddingRight: "2px",
+                                }}
+                              >
+                                <svg
+                                  viewBox="0 0 51 48"
+                                  className="widget-svg"
+                                  style={{
+                                    width: "20px",
+                                    height: "20px",
+                                    transition: "transform 0.2s ease-in-out 0s",
+                                  }}
+                                >
+                                  <path
+                                    className="star"
+                                    d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
+                                    style={{
+                                      fill: "rgb(255, 184, 41)",
+                                      transition: "fill 0.2s ease-in-out 0s",
+                                    }}
+                                  ></path>
+                                </svg>
+                              </div>
+                              <div
+                                className="star-container"
+                                style={{
+                                  position: "relative",
+                                  display: "inline-block",
+                                  verticalAlign: "middle",
+                                  paddingLeft: "2px",
+                                  paddingRight: "2px",
+                                }}
+                              >
+                                <svg
+                                  viewBox="0 0 51 48"
+                                  className="widget-svg"
+                                  style={{
+                                    width: "20px",
+                                    height: "20px",
+                                    transition: "transform 0.2s ease-in-out 0s",
+                                  }}
+                                >
+                                  <path
+                                    className="star"
+                                    d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
+                                    style={{
+                                      fill: "rgb(255, 184, 41)",
+                                      transition: "fill 0.2s ease-in-out 0s",
+                                    }}
+                                  ></path>
+                                </svg>
+                              </div>
+                              <div
+                                className="star-container"
+                                style={{
+                                  position: "relative",
+                                  display: "inline-block",
+                                  verticalAlign: "middle",
+                                  paddingLeft: "2px",
+                                  paddingRight: "2px",
+                                }}
+                              >
+                                <svg
+                                  viewBox="0 0 51 48"
+                                  className="widget-svg"
+                                  style={{
+                                    width: "20px",
+                                    height: "20px",
+                                    transition: "transform 0.2s ease-in-out 0s",
+                                  }}
+                                >
+                                  <path
+                                    className="star"
+                                    d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
+                                    style={{
+                                      fill: "rgb(255, 184, 41)",
+                                      transition: "fill 0.2s ease-in-out 0s",
+                                    }}
+                                  ></path>
+                                </svg>
+                              </div>
+                              <div
+                                className="star-container"
+                                style={{
+                                  position: "relative",
+                                  display: "inline-block",
+                                  verticalAlign: "middle",
+                                  paddingLeft: "2px",
+                                  paddingRight: "2px",
+                                }}
+                              >
+                                <svg
+                                  viewBox="0 0 51 48"
+                                  className="widget-svg"
+                                  style={{
+                                    width: "20px",
+                                    height: "20px",
+                                    transition: "transform 0.2s ease-in-out 0s",
+                                  }}
+                                >
+                                  <path
+                                    className="star"
+                                    d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
+                                    style={{
+                                      fill: "rgb(255, 184, 41)",
+                                      transition: "fill 0.2s ease-in-out 0s",
+                                    }}
+                                  ></path>
+                                </svg>
+                              </div>
+                              <div
+                                className="star-container"
+                                style={{
+                                  position: "relative",
+                                  display: "inline-block",
+                                  verticalAlign: "middle",
+                                  paddingLeft: "2px",
+                                }}
+                              >
+                                <svg
+                                  viewBox="0 0 51 48"
+                                  className="widget-svg"
+                                  style={{
+                                    width: "20px",
+                                    height: "20px",
+                                    transition: "transform 0.2s ease-in-out 0s",
+                                  }}
+                                >
+                                  <path
+                                    className="star"
+                                    d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
+                                    style={{
+                                      fill: "rgb(255, 184, 41)",
+                                      transition: "fill 0.2s ease-in-out 0s",
+                                    }}
+                                  ></path>
+                                </svg>
+                              </div>
+                            </div>
+                          </span>
+                        </label>
+                      </li>
+                      <li>
+                        <label className="flex items-center">
+                          <input
+                            name="ratings"
+                            type="checkbox"
+                            className="h-4 w-4"
+                            value="4"
+                          />
+                          <span className="ml-2 text-gray-500">
+                            <div className="star-ratings" title="5 Stars">
+                              <div
+                                className="star-container"
+                                style={{
+                                  position: "relative",
+                                  display: "inline-block",
+                                  verticalAlign: "middle",
+                                  paddingRight: "2px",
+                                }}
+                              >
+                                <svg
+                                  viewBox="0 0 51 48"
+                                  className="widget-svg"
+                                  style={{
+                                    width: "20px",
+                                    height: "20px",
+                                    transition: "transform 0.2s ease-in-out 0s",
+                                  }}
+                                >
+                                  <path
+                                    className="star"
+                                    d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
+                                    style={{
+                                      fill: "rgb(255, 184, 41)",
+                                      transition: "fill 0.2s ease-in-out 0s",
+                                    }}
+                                  ></path>
+                                </svg>
+                              </div>
+                              <div
+                                className="star-container"
+                                style={{
+                                  position: "relative",
+                                  display: "inline-block",
+                                  verticalAlign: "middle",
+                                  paddingLeft: "2px",
+                                  paddingRight: "2px",
+                                }}
+                              >
+                                <svg
+                                  viewBox="0 0 51 48"
+                                  className="widget-svg"
+                                  style={{
+                                    width: "20px",
+                                    height: "20px",
+                                    transition: "transform 0.2s ease-in-out 0s",
+                                  }}
+                                >
+                                  <path
+                                    className="star"
+                                    d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
+                                    style={{
+                                      fill: "rgb(255, 184, 41)",
+                                      transition: "fill 0.2s ease-in-out 0s",
+                                    }}
+                                  ></path>
+                                </svg>
+                              </div>
+                              <div
+                                className="star-container"
+                                style={{
+                                  position: "relative",
+                                  display: "inline-block",
+                                  verticalAlign: "middle",
+                                  paddingLeft: "2px",
+                                  paddingRight: "2px",
+                                }}
+                              >
+                                <svg
+                                  viewBox="0 0 51 48"
+                                  className="widget-svg"
+                                  style={{
+                                    width: "20px",
+                                    height: "20px",
+                                    transition: "transform 0.2s ease-in-out 0s",
+                                  }}
+                                >
+                                  <path
+                                    className="star"
+                                    d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
+                                    style={{
+                                      fill: "rgb(255, 184, 41)",
+                                      transition: "fill 0.2s ease-in-out 0s",
+                                    }}
+                                  ></path>
+                                </svg>
+                              </div>
+                              <div
+                                className="star-container"
+                                style={{
+                                  position: "relative",
+                                  display: "inline-block",
+                                  verticalAlign: "middle",
+                                  paddingLeft: "2px",
+                                  paddingRight: "2px",
+                                }}
+                              >
+                                <svg
+                                  viewBox="0 0 51 48"
+                                  className="widget-svg"
+                                  style={{
+                                    width: "20px",
+                                    height: "20px",
+                                    transition: "transform 0.2s ease-in-out 0s",
+                                  }}
+                                >
+                                  <path
+                                    className="star"
+                                    d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
+                                    style={{
+                                      fill: "rgb(255, 184, 41)",
+                                      transition: "fill 0.2s ease-in-out 0s",
+                                    }}
+                                  ></path>
+                                </svg>
+                              </div>
+                              <div
+                                className="star-container"
+                                style={{
+                                  position: "relative",
+                                  display: "inline-block",
+                                  verticalAlign: "middle",
+                                  paddingLeft: "2px",
+                                }}
+                              >
+                                <svg
+                                  viewBox="0 0 51 48"
+                                  className="widget-svg"
+                                  style={{
+                                    width: "20px",
+                                    height: "20px",
+                                    transition: "transform 0.2s ease-in-out 0s",
+                                  }}
+                                >
+                                  <path
+                                    className="star"
+                                    d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
+                                    style={{
+                                      fill: "rgb(255, 184, 41)",
+                                      transition: "fill 0.2s ease-in-out 0s",
+                                    }}
+                                  ></path>
+                                </svg>
+                              </div>
+                            </div>
+                          </span>
+                        </label>
+                      </li>
+                      <li>
+                        <label className="flex items-center">
+                          <input
+                            name="ratings"
+                            type="checkbox"
+                            className="h-4 w-4"
+                            value="3"
+                          />
+                          <span className="ml-2 text-gray-500">
+                            <div className="star-ratings" title="5 Stars">
+                              <div
+                                className="star-container"
+                                style={{
+                                  position: "relative",
+                                  display: "inline-block",
+                                  verticalAlign: "middle",
+                                  paddingRight: "2px",
+                                }}
+                              >
+                                <svg
+                                  viewBox="0 0 51 48"
+                                  className="widget-svg"
+                                  style={{
+                                    width: "20px",
+                                    height: "20px",
+                                    transition: "transform 0.2s ease-in-out 0s",
+                                  }}
+                                >
+                                  <path
+                                    className="star"
+                                    d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
+                                    style={{
+                                      fill: "rgb(255, 184, 41)",
+                                      transition: "fill 0.2s ease-in-out 0s",
+                                    }}
+                                  ></path>
+                                </svg>
+                              </div>
+                              <div
+                                className="star-container"
+                                style={{
+                                  position: "relative",
+                                  display: "inline-block",
+                                  verticalAlign: "middle",
+                                  paddingLeft: "2px",
+                                  paddingRight: "2px",
+                                }}
+                              >
+                                <svg
+                                  viewBox="0 0 51 48"
+                                  className="widget-svg"
+                                  style={{
+                                    width: "20px",
+                                    height: "20px",
+                                    transition: "transform 0.2s ease-in-out 0s",
+                                  }}
+                                >
+                                  <path
+                                    className="star"
+                                    d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
+                                    style={{
+                                      fill: "rgb(255, 184, 41)",
+                                      transition: "fill 0.2s ease-in-out 0s",
+                                    }}
+                                  ></path>
+                                </svg>
+                              </div>
+                              <div
+                                className="star-container"
+                                style={{
+                                  position: "relative",
+                                  display: "inline-block",
+                                  verticalAlign: "middle",
+                                  paddingLeft: "2px",
+                                  paddingRight: "2px",
+                                }}
+                              >
+                                <svg
+                                  viewBox="0 0 51 48"
+                                  className="widget-svg"
+                                  style={{
+                                    width: "20px",
+                                    height: "20px",
+                                    transition: "transform 0.2s ease-in-out 0s",
+                                  }}
+                                >
+                                  <path
+                                    className="star"
+                                    d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
+                                    style={{
+                                      fill: "rgb(255, 184, 41)",
+                                      transition: "fill 0.2s ease-in-out 0s",
+                                    }}
+                                  ></path>
+                                </svg>
+                              </div>
+                              <div
+                                className="star-container"
+                                style={{
+                                  position: "relative",
+                                  display: "inline-block",
+                                  verticalAlign: "middle",
+                                  paddingLeft: "2px",
+                                  paddingRight: "2px",
+                                }}
+                              >
+                                <svg
+                                  viewBox="0 0 51 48"
+                                  className="widget-svg"
+                                  style={{
+                                    width: "20px",
+                                    height: "20px",
+                                    transition: "transform 0.2s ease-in-out 0s",
+                                  }}
+                                >
+                                  <path
+                                    className="star"
+                                    d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
+                                    style={{
+                                      fill: "rgb(255, 184, 41)",
+                                      transition: "fill 0.2s ease-in-out 0s",
+                                    }}
+                                  ></path>
+                                </svg>
+                              </div>
+                              <div
+                                className="star-container"
+                                style={{
+                                  position: "relative",
+                                  display: "inline-block",
+                                  verticalAlign: "middle",
+                                  paddingLeft: "2px",
+                                }}
+                              >
+                                <svg
+                                  viewBox="0 0 51 48"
+                                  className="widget-svg"
+                                  style={{
+                                    width: "20px",
+                                    height: "20px",
+                                    transition: "transform 0.2s ease-in-out 0s",
+                                  }}
+                                >
+                                  <path
+                                    className="star"
+                                    d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
+                                    style={{
+                                      fill: "rgb(255, 184, 41)",
+                                      transition: "fill 0.2s ease-in-out 0s",
+                                    }}
+                                  ></path>
+                                </svg>
+                              </div>
+                            </div>
+                          </span>
+                        </label>
+                      </li>
+                      <li>
+                        <label className="flex items-center">
+                          <input
+                            name="ratings"
+                            type="checkbox"
+                            className="h-4 w-4"
+                            value="2"
+                          />
+                          <span className="ml-2 text-gray-500">
+                            <div className="star-ratings" title="5 Stars">
+                              <div
+                                className="star-container"
+                                style={{
+                                  position: "relative",
+                                  display: "inline-block",
+                                  verticalAlign: "middle",
+                                  paddingRight: "2px",
+                                }}
+                              >
+                                <svg
+                                  viewBox="0 0 51 48"
+                                  className="widget-svg"
+                                  style={{
+                                    width: "20px",
+                                    height: "20px",
+                                    transition: "transform 0.2s ease-in-out 0s",
+                                  }}
+                                >
+                                  <path
+                                    className="star"
+                                    d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
+                                    style={{
+                                      fill: "rgb(255, 184, 41)",
+                                      transition: "fill 0.2s ease-in-out 0s",
+                                    }}
+                                  ></path>
+                                </svg>
+                              </div>
+                              <div
+                                className="star-container"
+                                style={{
+                                  position: "relative",
+                                  display: "inline-block",
+                                  verticalAlign: "middle",
+                                  paddingLeft: "2px",
+                                  paddingRight: "2px",
+                                }}
+                              >
+                                <svg
+                                  viewBox="0 0 51 48"
+                                  className="widget-svg"
+                                  style={{
+                                    width: "20px",
+                                    height: "20px",
+                                    transition: "transform 0.2s ease-in-out 0s",
+                                  }}
+                                >
+                                  <path
+                                    className="star"
+                                    d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
+                                    style={{
+                                      fill: "rgb(255, 184, 41)",
+                                      transition: "fill 0.2s ease-in-out 0s",
+                                    }}
+                                  ></path>
+                                </svg>
+                              </div>
+                              <div
+                                className="star-container"
+                                style={{
+                                  position: "relative",
+                                  display: "inline-block",
+                                  verticalAlign: "middle",
+                                  paddingLeft: "2px",
+                                  paddingRight: "2px",
+                                }}
+                              >
+                                <svg
+                                  viewBox="0 0 51 48"
+                                  className="widget-svg"
+                                  style={{
+                                    width: "20px",
+                                    height: "20px",
+                                    transition: "transform 0.2s ease-in-out 0s",
+                                  }}
+                                >
+                                  <path
+                                    className="star"
+                                    d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
+                                    style={{
+                                      fill: "rgb(255, 184, 41)",
+                                      transition: "fill 0.2s ease-in-out 0s",
+                                    }}
+                                  ></path>
+                                </svg>
+                              </div>
+                              <div
+                                className="star-container"
+                                style={{
+                                  position: "relative",
+                                  display: "inline-block",
+                                  verticalAlign: "middle",
+                                  paddingLeft: "2px",
+                                  paddingRight: "2px",
+                                }}
+                              >
+                                <svg
+                                  viewBox="0 0 51 48"
+                                  className="widget-svg"
+                                  style={{
+                                    width: "20px",
+                                    height: "20px",
+                                    transition: "transform 0.2s ease-in-out 0s",
+                                  }}
+                                >
+                                  <path
+                                    className="star"
+                                    d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
+                                    style={{
+                                      fill: "rgb(255, 184, 41)",
+                                      transition: "fill 0.2s ease-in-out 0s",
+                                    }}
+                                  ></path>
+                                </svg>
+                              </div>
+                              <div
+                                className="star-container"
+                                style={{
+                                  position: "relative",
+                                  display: "inline-block",
+                                  verticalAlign: "middle",
+                                  paddingLeft: "2px",
+                                }}
+                              >
+                                <svg
+                                  viewBox="0 0 51 48"
+                                  className="widget-svg"
+                                  style={{
+                                    width: "20px",
+                                    height: "20px",
+                                    transition: "transform 0.2s ease-in-out 0s",
+                                  }}
+                                >
+                                  <path
+                                    className="star"
+                                    d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
+                                    style={{
+                                      fill: "rgb(255, 184, 41)",
+                                      transition: "fill 0.2s ease-in-out 0s",
+                                    }}
+                                  ></path>
+                                </svg>
+                              </div>
+                            </div>
+                          </span>
+                        </label>
+                      </li>
+                      <li>
+                        <label className="flex items-center">
+                          <input
+                            name="ratings"
+                            type="checkbox"
+                            className="h-4 w-4"
+                            value="1"
+                          />
+                          <span className="ml-2 text-gray-500">
+                            <div className="star-ratings" title="5 Stars">
+                              <div
+                                className="star-container"
+                                style={{
+                                  position: "relative",
+                                  display: "inline-block",
+                                  verticalAlign: "middle",
+                                  paddingRight: "2px",
+                                }}
+                              >
+                                <svg
+                                  viewBox="0 0 51 48"
+                                  className="widget-svg"
+                                  style={{
+                                    width: "20px",
+                                    height: "20px",
+                                    transition: "transform 0.2s ease-in-out 0s",
+                                  }}
+                                >
+                                  <path
+                                    className="star"
+                                    d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
+                                    style={{
+                                      fill: "rgb(255, 184, 41)",
+                                      transition: "fill 0.2s ease-in-out 0s",
+                                    }}
+                                  ></path>
+                                </svg>
+                              </div>
+                              <div
+                                className="star-container"
+                                style={{
+                                  position: "relative",
+                                  display: "inline-block",
+                                  verticalAlign: "middle",
+                                  paddingLeft: "2px",
+                                  paddingRight: "2px",
+                                }}
+                              >
+                                <svg
+                                  viewBox="0 0 51 48"
+                                  className="widget-svg"
+                                  style={{
+                                    width: "20px",
+                                    height: "20px",
+                                    transition: "transform 0.2s ease-in-out 0s",
+                                  }}
+                                >
+                                  <path
+                                    className="star"
+                                    d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
+                                    style={{
+                                      fill: "rgb(255, 184, 41)",
+                                      transition: "fill 0.2s ease-in-out 0s",
+                                    }}
+                                  ></path>
+                                </svg>
+                              </div>
+                              <div
+                                className="star-container"
+                                style={{
+                                  position: "relative",
+                                  display: "inline-block",
+                                  verticalAlign: "middle",
+                                  paddingLeft: "2px",
+                                  paddingRight: "2px",
+                                }}
+                              >
+                                <svg
+                                  viewBox="0 0 51 48"
+                                  className="widget-svg"
+                                  style={{
+                                    width: "20px",
+                                    height: "20px",
+                                    transition: "transform 0.2s ease-in-out 0s",
+                                  }}
+                                >
+                                  <path
+                                    className="star"
+                                    d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
+                                    style={{
+                                      fill: "rgb(255, 184, 41)",
+                                      transition: "fill 0.2s ease-in-out 0s",
+                                    }}
+                                  ></path>
+                                </svg>
+                              </div>
+                              <div
+                                className="star-container"
+                                style={{
+                                  position: "relative",
+                                  display: "inline-block",
+                                  verticalAlign: "middle",
+                                  paddingLeft: "2px",
+                                  paddingRight: "2px",
+                                }}
+                              >
+                                <svg
+                                  viewBox="0 0 51 48"
+                                  className="widget-svg"
+                                  style={{
+                                    width: "20px",
+                                    height: "20px",
+                                    transition: "transform 0.2s ease-in-out 0s",
+                                  }}
+                                >
+                                  <path
+                                    className="star"
+                                    d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
+                                    style={{
+                                      fill: "rgb(255, 184, 41)",
+                                      transition: "fill 0.2s ease-in-out 0s",
+                                    }}
+                                  ></path>
+                                </svg>
+                              </div>
+                              <div
+                                className="star-container"
+                                style={{
+                                  position: "relative",
+                                  display: "inline-block",
+                                  verticalAlign: "middle",
+                                  paddingLeft: "2px",
+                                }}
+                              >
+                                <svg
+                                  viewBox="0 0 51 48"
+                                  className="widget-svg"
+                                  style={{
+                                    width: "20px",
+                                    height: "20px",
+                                    transition: "transform 0.2s ease-in-out 0s",
+                                  }}
+                                >
+                                  <path
+                                    className="star"
+                                    d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
+                                    style={{
+                                      fill: "rgb(255, 184, 41)",
+                                      transition: "fill 0.2s ease-in-out 0s",
+                                    }}
+                                  ></path>
+                                </svg>
+                              </div>
+                            </div>
+                          </span>
+                        </label>
+                      </li>
+                    </ul>
+                  </div>
+                </aside>
+                <main class="md:w-2/3 lg:w-3/4 px-3">
+                  <article class="border border-gray-200 overflow-hidden bg-white shadow-sm rounded mb-5">
+                    <div class="flex flex-col md:flex-row">
+                      <div class="md:w-1/4 flex p-3">
+                        <div
+                          style={{
+                            width: "80%",
+                            height: "70%",
+                            position: "relative",
+                          }}
+                        >
+                          <img
+                            src="/logo192.png"
+                            alt="product anme"
+                            height="240"
+                            width="240"
+                          />
+                        </div>
+                      </div>
+                      <div class="md:w-2/4">
+                        <div class="p-4">
+                          <a class="hover:text-blue-600" href="/">
+                            Lorem Ipsum is simply dummy text
+                          </a>
+                          <div class="flex flex-wrap items-center space-x-2 mb-2">
+                            <div class="ratings">
+                              <div class="my-1">
+                                <div
+                                  class="star-ratings"
+                                  title="5 Stars"
+                                  // style="position: relative; box-sizing: border-box; display: inline-block;"
+                                >
+                                  <span className="ml-2 text-gray-500">
+                                    <div
+                                      className="star-ratings"
+                                      title="5 Stars"
+                                    >
+                                      <div
+                                        className="star-container"
+                                        style={{
+                                          position: "relative",
+                                          display: "inline-block",
+                                          verticalAlign: "middle",
+                                          paddingRight: "2px",
+                                        }}
+                                      >
+                                        <svg
+                                          viewBox="0 0 51 48"
+                                          className="widget-svg"
+                                          style={{
+                                            width: "20px",
+                                            height: "20px",
+                                            transition:
+                                              "transform 0.2s ease-in-out 0s",
+                                          }}
+                                        >
+                                          <path
+                                            className="star"
+                                            d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
+                                            style={{
+                                              fill: "rgb(255, 184, 41)",
+                                              transition:
+                                                "fill 0.2s ease-in-out 0s",
+                                            }}
+                                          ></path>
+                                        </svg>
+                                      </div>
+                                      <div
+                                        className="star-container"
+                                        style={{
+                                          position: "relative",
+                                          display: "inline-block",
+                                          verticalAlign: "middle",
+                                          paddingLeft: "2px",
+                                          paddingRight: "2px",
+                                        }}
+                                      >
+                                        <svg
+                                          viewBox="0 0 51 48"
+                                          className="widget-svg"
+                                          style={{
+                                            width: "20px",
+                                            height: "20px",
+                                            transition:
+                                              "transform 0.2s ease-in-out 0s",
+                                          }}
+                                        >
+                                          <path
+                                            className="star"
+                                            d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
+                                            style={{
+                                              fill: "rgb(255, 184, 41)",
+                                              transition:
+                                                "fill 0.2s ease-in-out 0s",
+                                            }}
+                                          ></path>
+                                        </svg>
+                                      </div>
+                                      <div
+                                        className="star-container"
+                                        style={{
+                                          position: "relative",
+                                          display: "inline-block",
+                                          verticalAlign: "middle",
+                                          paddingLeft: "2px",
+                                          paddingRight: "2px",
+                                        }}
+                                      >
+                                        <svg
+                                          viewBox="0 0 51 48"
+                                          className="widget-svg"
+                                          style={{
+                                            width: "20px",
+                                            height: "20px",
+                                            transition:
+                                              "transform 0.2s ease-in-out 0s",
+                                          }}
+                                        >
+                                          <path
+                                            className="star"
+                                            d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
+                                            style={{
+                                              fill: "rgb(255, 184, 41)",
+                                              transition:
+                                                "fill 0.2s ease-in-out 0s",
+                                            }}
+                                          ></path>
+                                        </svg>
+                                      </div>
+                                      <div
+                                        className="star-container"
+                                        style={{
+                                          position: "relative",
+                                          display: "inline-block",
+                                          verticalAlign: "middle",
+                                          paddingLeft: "2px",
+                                          paddingRight: "2px",
+                                        }}
+                                      >
+                                        <svg
+                                          viewBox="0 0 51 48"
+                                          className="widget-svg"
+                                          style={{
+                                            width: "20px",
+                                            height: "20px",
+                                            transition:
+                                              "transform 0.2s ease-in-out 0s",
+                                          }}
+                                        >
+                                          <path
+                                            className="star"
+                                            d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
+                                            style={{
+                                              fill: "rgb(255, 184, 41)",
+                                              transition:
+                                                "fill 0.2s ease-in-out 0s",
+                                            }}
+                                          ></path>
+                                        </svg>
+                                      </div>
+                                      <div
+                                        className="star-container"
+                                        style={{
+                                          position: "relative",
+                                          display: "inline-block",
+                                          verticalAlign: "middle",
+                                          paddingLeft: "2px",
+                                        }}
+                                      >
+                                        <svg
+                                          viewBox="0 0 51 48"
+                                          className="widget-svg"
+                                          style={{
+                                            width: "20px",
+                                            height: "20px",
+                                            transition:
+                                              "transform 0.2s ease-in-out 0s",
+                                          }}
+                                        >
+                                          <path
+                                            className="star"
+                                            d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"
+                                            style={{
+                                              fill: "rgb(255, 184, 41)",
+                                              transition:
+                                                "fill 0.2s ease-in-out 0s",
+                                            }}
+                                          ></path>
+                                        </svg>
+                                      </div>
+                                    </div>
+                                  </span>
+                                </div>
+                              </div>
+                              <b class="text-gray-300">•</b>
+                              <span class="ml-1 text-yellow-500">5</span>
+                            </div>
+                          </div>
+                          <p class="text-gray-500 mb-2">
+                            Lorem Ipsum is simply dummy text of the printing and
+                            typesetting industry. Lorem Ipsum has been the
+                            industry's standard dummy text ever since the 1500s.
+                          </p>
+                        </div>
+                      </div>
+                      <div class="md:w-1/4 border-t lg:border-t-0 lg:border-l border-gray-200">
+                        <div class="p-5">
+                          <span class="text-xl font-semibold text-black">
+                            $989
+                          </span>
+                          <p class="text-green-500">Free Shipping</p>
+                          <div class="my-3">
+                            <a class="px-4 py-2 inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 cursor-pointer">
+                              {" "}
+                              Add to Cart{" "}
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </main>
+              </div>
+            </div>
+          </section>
+        </div>
+      </header>
     </div>
   );
 }
-
