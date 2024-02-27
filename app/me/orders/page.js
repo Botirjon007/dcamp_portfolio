@@ -1,4 +1,4 @@
-export default function UserordersPage() {
+export default function UserOrderPage() {
     
     return (
         <div>

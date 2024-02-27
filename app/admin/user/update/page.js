@@ -1,4 +1,4 @@
-export default function UpdateUsersAdminPage() {
+export default function UpdateUserAdminPage() {
     return (
       <div>
         <section class="py-10">

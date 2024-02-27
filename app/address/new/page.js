@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function NewAddressPage() {
+export default function AddNewAddressPage() {
   return (
     <div>
       <section className="py-5 sm:py-7 bg-blue-100 h-2">

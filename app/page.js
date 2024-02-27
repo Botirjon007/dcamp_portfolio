@@ -9,7 +9,7 @@ export default function Home() {
           href="/products"
           className="text-xl block text-black no-underline hover:underline"
         >
-          <p class="text-xl">Hompage</p>
+          <p class="text-xl">Homepage</p>
         </a>
         <a
           href="/product/details"
