@@ -20,7 +20,7 @@ export default function NewProductPage() {
                     </aside>
                     <main class="md:w-2/3 lg:w-3/4 px-4">
                         <section class="container max-w-3xl p-6 mx-auto">
-                            <h1 class="mb-3 text-xl md:text-3xl font-semibold text-black mb-8">Create New Product</h1>
+                            <h1 class=" text-xl md:text-3xl font-semibold text-black mb-8">Create New Product</h1>
                             <form>
                                 <div class="mb-4"><label class="block mb-1"> Name </label><input type="text" class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full" placeholder="Product name"
                                         name="name" required=""/></div>
