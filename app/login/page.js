@@ -7,7 +7,7 @@ import { getAnalytics } from "firebase/analytics"; // Import getAnalytics from f
 import { useState } from "react";
 import { GoogleAuthProvider } from "firebase/auth";
 import { signInWithPopup } from "firebase/auth";
-import firebaseConfig from './../../components/firebaseConfig';
+import firebaseConfig from '../components/firebaseConfig';
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

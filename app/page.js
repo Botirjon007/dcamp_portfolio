@@ -1,10 +1,17 @@
-// Import the cart functions
-
-import Star from "@/components/star";
-import Stars from "@/components/stars";
-import Input from "@/components/input";
+"use client";
+import React, { useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "./components/firebaseConfig";
+import Star from "@/app/components/star";
+import Stars from "@/app/components/stars";
+import Input from "@/app/components/input";
 
 export default function Homepage() {
+  const [user] = useAuthState(auth);
+   const handleSignOut = () => {
+     auth.signOut(); // Firebase auth method to sign out
+   };
+
   return (
     <div>
       <header className="container max-w-screen-xl mx-auto px-4">
@@ -45,26 +52,51 @@ export default function Homepage() {
                 <i className="fas fa-shopping-cart mr-1"></i>
                 Cart (0)
               </a>
-              <a
-                href="/login"
-                className="text-gray-700 hover:text-gray-900 border border-gray-300 rounded-md px-3 py-2"
-              >
-                <i className="fas fa-user mr-1"></i>
-                Sign in
-              </a>
-              <a href="/ge" className="flex items-center">
-                <img
-                  className="w-10 h-10 rounded-full mr-2"
-                  src="logo192.png"
-                  alt="User Image"
-                />
+              {/* Sign out button */}
+              {user && (
                 <div>
-                  <p className="text-gray-700 font-medium">Ghulam</p>
-                  <p className="text-gray-500 text-sm">test@gmail.com</p>
+                  <button
+                    onClick={handleSignOut}
+                    className="text-gray-700 hover:text-gray-900 border border-gray-300 rounded-md px-3 py-2"
+                  >
+                    <i className="fas fa-sign-out-alt mr-1"></i>
+                    Sign out
+                  </button>
                 </div>
-              </a>
+              )}
+
+              {/* Conditional rendering based on user authentication */}
+              {!user && (
+                <a
+                  href="/login"
+                  className="text-gray-700 hover:text-gray-900 border border-gray-300 rounded-md px-3 py-2"
+                >
+                  <i className="fas fa-user mr-1"></i>
+                  Sign in
+                </a>
+              )}
+
+              {/* Display user information if authenticated */}
+              {user && (
+                <div>
+                  <a href="/profile" className="flex items-center">
+                    <img
+                      className="w-10 h-10 rounded-full mr-2"
+                      src="logo192.png"
+                      alt="User Image"
+                    />
+                    <div>
+                      <p className="text-gray-700 font-medium">
+                        {user.displayName}
+                      </p>
+                      <p className="text-gray-500 text-sm">{user.email}</p>
+                    </div>
+                  </a>
+                </div>
+              )}
             </div>
           </div>
+
           <hr className="line w-full" />
           <section className="mt-2">
             <div className="container max-w-screen-xl mx-auto px-4">
@@ -157,7 +189,7 @@ export default function Homepage() {
                         >
                           <img
                             src="/logo192.png"
-                            alt="product anme"
+                            alt="product name"
                             height="240"
                             width="240"
                           />
@@ -171,11 +203,7 @@ export default function Homepage() {
                           <div className="flex flex-wrap items-center space-x-2 mb-2">
                             <div className="ratings">
                               <div className="my-1">
-                                <div
-                                  className="star-ratings"
-                                  title="5 Stars"
-                                  // style="position: relative; box-sizing: border-box; display: inline-block;"
-                                >
+                                <div className="star-ratings" title="5 Stars">
                                   <span className="ml-2 text-gray-500">
                                     <Stars />
                                   </span>
@@ -187,7 +215,7 @@ export default function Homepage() {
                           </div>
                           <p className="text-gray-500 mb-2">
                             Lorem Ipsum is simply dummy text of the printing and
-                            typesetting indu stry. Lorem Ipsum has been the
+                            typesetting industry. Lorem Ipsum has been the
                             industry's standard dummy text ever since the 1500s.
                           </p>
                         </div>

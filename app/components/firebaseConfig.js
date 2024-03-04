@@ -1,7 +1,7 @@
 
 import { initializeApp } from "firebase/app";
-import { getAuth, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth"; // Import Firebase auth functions
-
+import { getAuth, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth"; // Import Firebase auth function
+import { getAnalytics } from "firebase/analytics"; // Import getAnalytics from firebase/analytics
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyCTmxULf2Ov_UtpwzJ-P0kRFHw_5t4A6lQ",
@@ -20,4 +20,4 @@ export const analytics = getAnalytics(app);
 export const auth = getAuth(); // Initialize Firebase authentication
 
 
- 
+ export default firebaseConfig;

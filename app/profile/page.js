@@ -1,6 +1,9 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "./../components/firebaseConfig";
 
 export default function ProfilePage() {
+  const [user] = useAuthState(auth);
   return (
     <section className="py-10">
       <div className="container max-w-screen-xl mx-auto px-4">
@@ -90,6 +93,10 @@ export default function ProfilePage() {
                   src="/logo192.png"
                   alt="user name"
                 />
+              </div>
+              <div>
+                <p className="text-gray-700 font-medium">{user.displayName}</p>
+                <p className="text-gray-500 text-sm">{user.email}</p>
               </div>
               <figcaption>
                 <h5 className="font-semibold text-lg">Ghulam</h5>

@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { auth } from "../../components/firebaseConfig"; // Import the Firebase auth module
+import { auth } from "../components/firebaseConfig"; // Import the Firebase auth module
 
 export default function RegisterPage() {
   const [fullName, setFullName] = useState("");
