@@ -1,9 +1,36 @@
-import React from "react";
+"use client"
+import React, { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "./../components/firebaseConfig";
+import { getFirestore,  doc, getDoc } from "firebase/firestore";
 
+// @ts-ignore
 export default function ProfilePage() {
+  // Wrap the hook usage with the "use client" directive
+  // This ensures it's only executed on the client side
   const [user] = useAuthState(auth);
+  const [joinedOn, setJoinedOn] = useState(null);
+
+   useEffect(() => {
+     const fetchUserData = async () => {
+       if (user) {
+         const db = getFirestore();
+         const userDocRef = doc(db, "users", user.uid);
+         const userDocSnapshot = await getDoc(userDocRef);
+         if (userDocSnapshot.exists()) {
+           const userData = userDocSnapshot.data();
+           setJoinedOn(userData.joinedOn);
+         }
+       }
+     };
+
+     fetchUserData();
+   }, [user]);
+
+  if (typeof window !== "undefined") {
+    // Code that depends on the window object
+  }
+
   return (
     <section className="py-10">
       <div className="container max-w-screen-xl mx-auto px-4">
@@ -95,15 +122,20 @@ export default function ProfilePage() {
                 />
               </div>
               <div>
-                <p className="text-gray-700 font-medium">{user.displayName}</p>
-                <p className="text-gray-500 text-sm">{user.email}</p>
+                {user ? (
+                  <>
+                    <p className="text-gray-700 font-medium">
+                      {user.displayName} | <b>Email:</b> {user.email} |{" "}
+                      <b>Joined On:</b>{" "}
+                      {joinedOn
+                        ? joinedOn.toDate().toLocaleDateString()
+                        : "Loading..."}
+                    </p>
+                  </>
+                ) : (
+                  <p>Loading...</p>
+                )}
               </div>
-              <figcaption>
-                <h5 className="font-semibold text-lg">Ghulam</h5>
-                <p>
-                  <b>Email:</b> ghulam@gmail.com | <b>Joined On:</b>2023-12-24
-                </p>
-              </figcaption>
             </figure>
             <hr className="my-4" />
             <a href="/address/">
