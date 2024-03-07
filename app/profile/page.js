@@ -10,6 +10,9 @@ export default function ProfilePage() {
   // This ensures it's only executed on the client side
   const [user] = useAuthState(auth);
   const [joinedOn, setJoinedOn] = useState(null);
+  // console.log("User Data:", userData);
+  console.log("Joined On:");
+
 
    useEffect(() => {
      const fetchUserData = async () => {

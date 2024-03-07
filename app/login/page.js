@@ -1,20 +1,9 @@
-"use client";
-// firebaseConfig.js
-
-import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
-import { getAnalytics } from "firebase/analytics"; // Import getAnalytics from firebase/analytics
+// LoginPage.js
+ "use client";
 import { useState } from "react";
 import { GoogleAuthProvider } from "firebase/auth";
-import { signInWithPopup } from "firebase/auth";
-import firebaseConfig from '../components/firebaseConfig';
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-export const analytics = getAnalytics(app); // Export getAnalytics
-export const auth = getAuth(); // Initialize Firebase authentication
-
-
+import { signInWithPopup, signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../components/firebaseConfig";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -24,20 +13,22 @@ export default function LoginPage() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      await signInWithEmailAndPassword(auth, email, password); // Use signInWithEmailAndPassword from Firebase auth
+      await signInWithEmailAndPassword(auth, email, password);
       // Redirect to the dashboard or another page upon successful login
     } catch (error) {
-      setError(error.message);
+      console.error(error); // Log error to console
+      setError("Failed to login. Please check your credentials."); // Set meaningful error message
     }
   };
 
   const handleGoogleSignIn = async () => {
     try {
       const provider = new GoogleAuthProvider();
-      await signInWithPopup(auth, provider); // Use signInWithPopup from Firebase auth
+      await signInWithPopup(auth, provider);
       // Redirect to the dashboard or another page upon successful login
     } catch (error) {
-      setError(error.message);
+      console.error(error); // Log error to console
+      setError("Failed to login with Google."); // Set meaningful error message
     }
   };
 

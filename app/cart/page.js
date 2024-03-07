@@ -8,6 +8,7 @@ export default function CartPage() {
           <h2 className="text-3xl font-semibold mb-2">5 Item(s) in Cart</h2>
         </div>
       </div>
+
       <div className="py-10">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row gap-4">
@@ -23,6 +24,7 @@ export default function CartPage() {
                           className="w-full h-full object-cover"
                         />
                       </div>
+                      
                       <div className="ml-3">
                         <p className="text-base font-medium">
                           <a href="#" className="hover:text-blue-600">
@@ -31,6 +33,7 @@ export default function CartPage() {
                         </p>
                         <p className="text-gray-400 text-sm">Seller: Apple</p>
                       </div>
+
                     </div>
                   </div>
                   <div className="w-24 flex items-center justify-center">
@@ -60,6 +63,7 @@ export default function CartPage() {
                 <hr className="my-4" />
               </div>
             </div>
+
             <div className="md:w-1/4">
               <div className="border border-gray-200 bg-white shadow-sm rounded mb-5 p-3 lg:p-5">
                 <ul className="mb-5">
