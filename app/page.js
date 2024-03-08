@@ -224,9 +224,9 @@ export default function Homepage() {
                           }}
                         >
                           {/* Render the product image */}
-                          {product && product.image && (
+                          {product && product.imageUrl && (
                             <img
-                              src={product.image}
+                              src={product.imageUrl}
                               alt={product.name}
                               height="240"
                               width="240"
@@ -241,18 +241,19 @@ export default function Homepage() {
                             {product && product.name}
                           </a>
                           <div className="flex flex-wrap items-center space-x-2 mb-2">
-                            <div className="ratings">
+                            <div className="ratings flex items-center">
                               <div className="my-1">
                                 <div className="star-ratings" title="5 Stars">
                                   <span className="ml-2 text-gray-500">
                                     {/* Render star ratings */}
-                                    <Stars />
+                                    <div className="mb-4">
+                                      <Stars />
+                                    </div>
                                   </span>
                                 </div>
                               </div>
                               <b className="text-gray-300">•</b>
                               <span className="ml-1 text-yellow-500">
-                                {" "}
                                 {product && product.rating}
                               </span>
                             </div>
