@@ -22,7 +22,11 @@ const db = getFirestore(app);
 
 // Initialize Firebase authentication
 const auth = getAuth(app);
+const firestore = getFirestore(app);
 
-export { db, auth }; // Export Firestore database and authentication
+export { auth, firestore }; // Export auth and firestore objects
+
+
+export { db}; // Export Firestore database and authentication
 
 export default firebaseConfig; // Export Firebase configuration

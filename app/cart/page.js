@@ -24,7 +24,7 @@ export default function CartPage() {
                           className="w-full h-full object-cover"
                         />
                       </div>
-                      
+
                       <div className="ml-3">
                         <p className="text-base font-medium">
                           <a href="#" className="hover:text-blue-600">
@@ -33,7 +33,6 @@ export default function CartPage() {
                         </p>
                         <p className="text-gray-400 text-sm">Seller: Apple</p>
                       </div>
-
                     </div>
                   </div>
                   <div className="w-24 flex items-center justify-center">
