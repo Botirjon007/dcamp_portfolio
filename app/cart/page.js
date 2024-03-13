@@ -1,5 +1,6 @@
 import React from "react";
 
+
 export default function CartPage() {
   return (
     <div>
@@ -62,6 +63,8 @@ export default function CartPage() {
                 <hr className="my-4" />
               </div>
             </div>
+
+            
 
             <div className="md:w-1/4">
               <div className="border border-gray-200 bg-white shadow-sm rounded mb-5 p-3 lg:p-5">

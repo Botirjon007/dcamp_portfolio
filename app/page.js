@@ -1,11 +1,13 @@
-"use client";
+// pages/index.js (Homepage)
+"use client"
 import React, { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth, firestore } from "./components/firebaseConfig";
+import { auth, firestore } from "@/app/components/firebaseConfig";
 import Star from "@/app/components/star";
 import Stars from "@/app/components/stars";
 import Input from "@/app/components/input";
 import { collection, query, getDocs } from "firebase/firestore";
+import Link from "next/link"; // Import Link from Next.js
 
 export default function Homepage() {
   const [user] = useAuthState(auth);
@@ -14,13 +16,11 @@ export default function Homepage() {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const productRef = collection(firestore, "product"); // Reference to the "products" collection
-        const productSnapshot = await getDocs(productRef); // Fetch all documents from the collection
-        // Check if there are any documents in the collection
+        const productRef = collection(firestore, "product");
+        const productSnapshot = await getDocs(productRef);
         if (!productSnapshot.empty) {
-          // Assuming you want to retrieve the first product for demonstration
-          const firstProduct = productSnapshot.docs[0].data(); // Get data of the first document
-          setProduct(firstProduct); // Set the product state
+          const firstProduct = productSnapshot.docs[0].data();
+          setProduct(firstProduct);
         } else {
           console.log("No products found in the collection");
         }
@@ -32,17 +32,23 @@ export default function Homepage() {
     fetchProduct();
   }, []);
 
-  // Function to handle adding a product to the cart
   const handleAddToCart = () => {
-    // Assuming productInfo is the information about the product
+    if (!product) {
+      console.error("No product available to add to cart");
+      return;
+    }
+
     const productInfo = {
-      /* Product information */
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      imageUrl: product.imageUrl,
+      description: product.description,
     };
-    setProduct(productInfo); // Set the product state to the product information
-    console.log("Item added to cart");
+
+    console.log("Item added to cart:", productInfo);
   };
 
-  // Function to handle user sign out
   const handleSignOut = () => {
     auth.signOut();
   };
@@ -53,15 +59,19 @@ export default function Homepage() {
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center">
             <div className="flex items-center">
-              <a href="/">
-                <img
-                  src="logo192.png"
-                  height="40"
-                  width="120"
-                  alt="BuyItNow"
-                  style={{ height: "50px", width: "60px" }}
-                />
-              </a>
+              <Link href="/">
+                {" "}
+                {/* Use Link instead of anchor tag */}
+                <div>
+                  <img
+                    src="logo192.png"
+                    height="40"
+                    width="120"
+                    alt="BuyItNow"
+                    style={{ height: "50px", width: "60px" }}
+                  />
+                </div>
+              </Link>
             </div>
             <div className="hidden md:flex items-center flex-grow">
               <input
@@ -80,14 +90,13 @@ export default function Homepage() {
             </div>
 
             <div className="flex items-center space-x-3">
-              <a
-                href="/cart"
-                className="text-gray-700 hover:text-gray-900 border border-gray-300 rounded-md px-3 py-2"
-              >
-                <i className="fas fa-shopping-cart mr-1"></i>
-                Cart (0)
-              </a>
-              {/* Sign out button */}
+              <Link href="/cart">
+                <div className="text-gray-700 hover:text-gray-900 border border-gray-300 rounded-md px-3 py-2">
+                  <i className="fas fa-shopping-cart mr-1"></i>
+                  Cart (0)
+                </div>
+              </Link>
+
               {user && (
                 <div>
                   <button
@@ -99,22 +108,19 @@ export default function Homepage() {
                   </button>
                 </div>
               )}
-
-              {/* Conditional rendering based on user authentication */}
               {!user && (
-                <a
-                  href="/login"
-                  className="text-gray-700 hover:text-gray-900 border border-gray-300 rounded-md px-3 py-2"
-                >
-                  <i className="fas fa-user mr-1"></i>
-                  Sign in
-                </a>
+                <Link href="/login">
+                  {" "}
+                  {/* Use Link instead of anchor tag */}
+                  <div className="text-gray-700 hover:text-gray-900 border border-gray-300 rounded-md px-3 py-2">
+                    <i className="fas fa-user mr-1"></i>
+                    Sign in
+                  </div>
+                </Link>
               )}
-
-              {/* Display user information if authenticated */}
               {user && (
                 <div>
-                  <a href="/profile" className="flex items-center">
+                  <div href="/profile" className="flex items-center">
                     <img
                       className="w-10 h-10 rounded-full mr-2"
                       src="logo192.png"
@@ -126,7 +132,7 @@ export default function Homepage() {
                       </p>
                       <p className="text-gray-500 text-sm">{user.email}</p>
                     </div>
-                  </a>
+                  </div>
                 </div>
               )}
             </div>
@@ -211,7 +217,6 @@ export default function Homepage() {
                     </ul>
                   </div>
                 </aside>
-
                 <main className="md:w-2/3 lg:w-3/4 px-3">
                   <article className="border border-gray-200 overflow-hidden bg-white shadow-sm rounded mb-5">
                     <div className="flex flex-col md:flex-row">
@@ -223,7 +228,6 @@ export default function Homepage() {
                             position: "relative",
                           }}
                         >
-                          {/* Render the product image */}
                           {product && product.imageUrl && (
                             <img
                               src={product.imageUrl}
@@ -236,16 +240,14 @@ export default function Homepage() {
                       </div>
                       <div className="md:w-2/4">
                         <div className="p-4">
-                          {/* Render the product name */}
-                          <a className="hover:text-blue-600" href="/">
+                          <div className="hover:text-blue-600" href="/">
                             {product && product.name}
-                          </a>
+                          </div>
                           <div className="flex flex-wrap items-center space-x-2 mb-2">
                             <div className="ratings flex items-center">
                               <div className="my-1">
                                 <div className="star-ratings" title="5 Stars">
                                   <span className="ml-2 text-gray-500">
-                                    {/* Render star ratings */}
                                     <div className="mb-4">
                                       <Stars />
                                     </div>
@@ -258,7 +260,6 @@ export default function Homepage() {
                               </span>
                             </div>
                           </div>
-                          {/* Render the product description */}
                           <p className="text-gray-500 mb-2">
                             {product && product.description}
                           </p>
@@ -266,22 +267,20 @@ export default function Homepage() {
                       </div>
                       <div className="md:w-1/4 border-t lg:border-t-0 lg:border-l border-gray-200">
                         <div className="p-5">
-                          {/* Render the product price */}
                           <span className="text-xl font-semibold text-black">
-                            {product && product.price}
+                            ${product && product.price}
                           </span>
-                          {/* Render the shipping information */}
                           <p className="text-green-500">
                             {product && product.shipping}
                           </p>
                           <div className="my-3">
-                            <a
+                            <div
                               className="px-4 py-2 inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 cursor-pointer"
-                              onClick={handleAddToCart} // Add this onClick event handle
+                              onClick={handleAddToCart}
                             >
                               {" "}
                               Add to Cart{" "}
-                            </a>
+                            </div>
                           </div>
                         </div>
                       </div>

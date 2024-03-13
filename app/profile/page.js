@@ -1,7 +1,7 @@
 "use client"
 import React, { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "./../components/firebaseConfig";
+import { auth } from "../components/firebaseConfig";
 import { getFirestore,  doc, getDoc } from "firebase/firestore";
 
 // @ts-ignore
