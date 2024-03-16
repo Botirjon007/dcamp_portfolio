@@ -9,9 +9,13 @@ import Input from "@/app/components/input";
 import { collection, query, getDocs } from "firebase/firestore";
 import Link from "next/link"; // Import Link from Next.js
 
+
 export default function Homepage() {
   const [user] = useAuthState(auth);
   const [product, setProduct] = useState(null);
+  const [cartItems, setCartItems] = useState([]);
+  const [cartCount, setCartCount] = useState(0);
+
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -32,24 +36,28 @@ export default function Homepage() {
     fetchProduct();
   }, []);
 
-  const handleAddToCart = () => {
-    if (!product) {
-      console.error("No product available to add to cart");
-      return;
-    }
+   const handleAddToCart = () => {
+     if (!product) {
+       console.error("No product available to add to cart");
+       return;
+     }
 
-    const productInfo = {
-      id: product.id,
-      name: product.name,
-      price: product.price,
-      imageUrl: product.imageUrl,
-      description: product.description,
-    };
+     const productInfo = {
+       id: product.id,
+       name: product.name,
+       price: product.price,
+       imageUrl: product.imageUrl,
+       description: product.description,
+       quantity: 1,
+     };
 
-    console.log("Item added to cart:", productInfo);
-  };
+     setCartItems([...cartItems, productInfo]);
+     setCartCount(cartCount + 1); // Increment cart count
+     console.log("Item added to cart:", productInfo);
+   };
 
-  const handleSignOut = () => {
+   
+   const handleSignOut = () => {
     auth.signOut();
   };
 
@@ -93,7 +101,7 @@ export default function Homepage() {
               <Link href="/cart">
                 <div className="text-gray-700 hover:text-gray-900 border border-gray-300 rounded-md px-3 py-2">
                   <i className="fas fa-shopping-cart mr-1"></i>
-                  Cart (0)
+                  Cart ({cartCount})
                 </div>
               </Link>
 
