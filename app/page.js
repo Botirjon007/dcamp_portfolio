@@ -42,6 +42,14 @@ export default function Homepage() {
        return;
      }
 
+     // Check if the product is already in the cart
+     const isProductInCart = cartItems.some((item) => item.id === product.id);
+
+     if (isProductInCart) {
+       console.log("Product is already in the cart");
+       return;
+     }
+
      const productInfo = {
        id: product.id,
        name: product.name,
@@ -52,9 +60,10 @@ export default function Homepage() {
      };
 
      setCartItems([...cartItems, productInfo]);
-     setCartCount(cartCount + 1); // Increment cart count
+     setCartCount((prevCount) => prevCount + 1); // Increment cart count
      console.log("Item added to cart:", productInfo);
    };
+
 
    
    const handleSignOut = () => {
