@@ -1,7 +1,21 @@
-import React from "react";
-
+"use client"
+import React, { useState } from "react";
 
 export default function CartPage() {
+  const [quantity, setQuantity] = useState(1); // State to manage quantity
+
+  // Function to increment quantity
+  const incrementQuantity = () => {
+    setQuantity(quantity + 1);
+  };
+
+  // Function to decrement quantity
+  const decrementQuantity = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  };
+
   return (
     <div>
       <div className="py-5 sm:py-7 bg-blue-100 h-2">
@@ -37,14 +51,27 @@ export default function CartPage() {
                     </div>
                   </div>
                   <div className="w-24 flex items-center justify-center">
-                    <button className="text-2xl font-thin">-</button>
+                    {/* - Button */}
+                    <button
+                      className="text-2xl font-thin"
+                      onClick={decrementQuantity}
+                    >
+                      -
+                    </button>
+                    {/* Quantity Input */}
                     <input
                       type="number"
                       className="text-center w-16 bg-gray-100 font-semibold text-md"
-                      value="1"
+                      value={quantity}
                       readOnly
                     />
-                    <button className="text-2xl font-thin">+</button>
+                    {/* + Button */}
+                    <button
+                      className="text-2xl font-thin"
+                      onClick={incrementQuantity}
+                    >
+                      +
+                    </button>
                   </div>
                   <div className="w-full lg:w-auto mt-2 lg:mt-0">
                     <div className="leading-5">
@@ -63,8 +90,6 @@ export default function CartPage() {
                 <hr className="my-4" />
               </div>
             </div>
-
-            
 
             <div className="md:w-1/4">
               <div className="border border-gray-200 bg-white shadow-sm rounded mb-5 p-3 lg:p-5">
