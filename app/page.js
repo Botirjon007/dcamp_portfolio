@@ -1,5 +1,5 @@
 // pages/index.js (Homepage)
-"use client"
+"use client";
 import React, { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, firestore } from "@/app/components/firebaseConfig";
@@ -10,64 +10,59 @@ import { collection, query, getDocs } from "firebase/firestore";
 import Link from "next/link"; // Import Link from Next.js
 import ProductPage from "./productcard/page";
 
-
 export default function Homepage() {
   const [user] = useAuthState(auth);
-  const [product, setProduct] = useState(null);
+  const [products, setProducts] = useState([]);
   const [cartItems, setCartItems] = useState([]);
   const [cartCount, setCartCount] = useState(0);
 
-
   useEffect(() => {
-    const fetchProduct = async () => {
+    const fetchProducts = async () => {
       try {
         const productRef = collection(firestore, "product");
         const productSnapshot = await getDocs(productRef);
-        if (!productSnapshot.empty) {
-          const firstProduct = productSnapshot.docs[0].data();
-          setProduct(firstProduct);
-        } else {
-          console.log("No products found in the collection");
-        }
+        const productData = productSnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setProducts(productData);
       } catch (error) {
-        console.error("Error fetching product:", error);
+        console.error("Error fetching products:", error);
       }
     };
 
-    fetchProduct();
+    fetchProducts();
   }, []);
 
-   const handleAddToCart = () => {
-     if (!product) {
-       console.error("No product available to add to cart");
-       return;
-     }
+  const handleAddToCart = () => {
+    if (!product) {
+      console.error("No product available to add to cart");
+      return;
+    }
 
-     // Check if the product is already in the cart
-     const isProductInCart = cartItems.some((item) => item.id === product.id);
+    // Check if the product is already in the cart
+    const isProductInCart = cartItems.some((item) => item.id === product.id);
 
-     if (isProductInCart) {
-       console.log("Product is already in the cart");
-       return;
-     }
+    if (isProductInCart) {
+      console.log("Product is already in the cart");
+      return;
+    }
 
-     const productInfo = {
-       id: product.id,
-       name: product.name,
-       price: product.price,
-       imageUrl: product.imageUrl,
-       description: product.description,
-       quantity: 1,
-     };
+    const productInfo = {
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      imageUrl: product.imageUrl,
+      description: product.description,
+      quantity: 1,
+    };
 
-     setCartItems([...cartItems, productInfo]);
-     setCartCount((prevCount) => prevCount + 1); // Increment cart count
-     console.log("Item added to cart:", productInfo);
-   };
+    setCartItems([...cartItems, productInfo]);
+    setCartCount((prevCount) => prevCount + 1); // Increment cart count
+    console.log("Item added to cart:", productInfo);
+  };
 
-
-   
-   const handleSignOut = () => {
+  const handleSignOut = () => {
     auth.signOut();
   };
 
@@ -235,9 +230,11 @@ export default function Homepage() {
                     </ul>
                   </div>
                 </aside>
+
                 <main className="md:w-2/3 lg:w-3/4 px-3">
-                 <ProductPage/>
-                 <ProductPage/>                 
+                  {products.map((product) => (
+                    <ProductPage key={product.id} productId={product.id} />
+                  ))}
                 </main>
               </div>
             </div>
