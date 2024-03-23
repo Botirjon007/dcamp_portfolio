@@ -34,33 +34,30 @@ export default function Homepage() {
     fetchProducts();
   }, []);
 
-  const handleAddToCart = () => {
-    if (!product) {
-      console.error("No product available to add to cart");
-      return;
-    }
+ const handleAddToCart = (product) => {
+   // Check if the product is already in the cart
+   const isProductInCart = cartItems.some((item) => item.id === product.id);
 
-    // Check if the product is already in the cart
-    const isProductInCart = cartItems.some((item) => item.id === product.id);
+   if (isProductInCart) {
+     console.log("Product is already in the cart");
+     return;
+   }
 
-    if (isProductInCart) {
-      console.log("Product is already in the cart");
-      return;
-    }
+   const productInfo = {
+     id: product.id,
+     name: product.name,
+     price: product.price,
+     imageUrl: product.imageUrl,
+     description: product.description,
+     quantity: 1,
+   };
 
-    const productInfo = {
-      id: product.id,
-      name: product.name,
-      price: product.price,
-      imageUrl: product.imageUrl,
-      description: product.description,
-      quantity: 1,
-    };
+   setCartItems((prevCartItems) => [...prevCartItems, productInfo]);
+   setCartCount((prevCount) => prevCount + 1); // Increment cart count
+   console.log("Item added to cart:", productInfo);
+ };
 
-    setCartItems([...cartItems, productInfo]);
-    setCartCount((prevCount) => prevCount + 1); // Increment cart count
-    console.log("Item added to cart:", productInfo);
-  };
+
 
   const handleSignOut = () => {
     auth.signOut();

@@ -1,43 +1,63 @@
-// pages/productcard/page.js
 import React, { useState, useEffect } from "react";
-import { collection, doc, getDoc } from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
 import { firestore } from "@/app/components/firebaseConfig";
+import Stars from "../components/stars";
 
 export default function ProductPage({ productId }) {
   const [product, setProduct] = useState(null);
 
-  useEffect(() => {
-    const fetchProduct = async () => {
-      try {
-        const productRef = doc(firestore, "product", productId);
-        const productDoc = await getDoc(productRef);
-        if (productDoc.exists()) {
-          const productData = productDoc.data();
-          setProduct(productData);
-        } else {
-          console.log("No product found with id:", productId);
-        }
-      } catch (error) {
-        console.error("Error fetching product:", error);
-      }
+   useEffect(() => {
+     const fetchProduct = async () => {
+       try {
+         const productRef = doc(firestore, "product", productId);
+         const productSnapshot = await getDoc(productRef);
+         if (productSnapshot.exists()) {
+           setProduct({ id: productId, ...productSnapshot.data() });
+         } else {
+           console.error("Product not found");
+         }
+       } catch (error) {
+         console.error("Error fetching product:", error);
+       }
+     };
+
+     fetchProduct();
+   }, [productId]);
+
+  if (!product) {
+    return <div>Loading...</div>;
+  }
+  
+
+
+  const handleAddToCart = () => {
+    if (!product) {
+      console.error("No product available to add to cart");
+      return;
+    }
+
+    const productInfo = {
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      imageUrl: product.imageUrl,
+      description: product.description,
+      quantity: 1,
     };
 
-    fetchProduct();
-  }, [productId]);
+    console.log("Item added to cart:", productInfo);
+    // Pass the selected product back to the Homepage component
+    // to add it to the cart
+    // addToCart(product);
+  };
 
   if (!product) {
     return null; // You can render a loading indicator here if needed
   }
 
-  const handleAddToCart = () => {
-    // Implement add to cart functionality
-  };
-
   return (
     <div>
       <article className="border border-gray-200 overflow-hidden bg-white shadow-sm rounded mb-5">
-        {/* Render product details here using product data */}
-        {/* Example: */}
         <div className="flex flex-col md:flex-row">
           <div className="md:w-1/4 flex p-3">
             <div
@@ -47,7 +67,7 @@ export default function ProductPage({ productId }) {
                 position: "relative",
               }}
             >
-              {product.imageUrl && (
+              {product && product.imageUrl && (
                 <img
                   src={product.imageUrl}
                   alt={product.name}
@@ -60,17 +80,36 @@ export default function ProductPage({ productId }) {
           <div className="md:w-2/4">
             <div className="p-4">
               <div className="hover:text-blue-600" href="/">
-                {product.name}
+                {product && product.name}
               </div>
-              {/* Render other product details */}
+              <div className="flex flex-wrap items-center space-x-2 mb-2">
+                <div className="ratings flex items-center">
+                  <div className="my-1">
+                    <div className="star-ratings" title="5 Stars">
+                      <span className="ml-2 text-gray-500">
+                        <div className="mb-4">
+                          <Stars />
+                        </div>
+                      </span>
+                    </div>
+                  </div>
+                  <b className="text-gray-300">•</b>
+                  <span className="ml-1 text-yellow-500">
+                    {product && product.rating}
+                  </span>
+                </div>
+              </div>
+              <p className="text-gray-500 mb-2">
+                {product && product.description}
+              </p>
             </div>
           </div>
           <div className="md:w-1/4 border-t lg:border-t-0 lg:border-l border-gray-200">
             <div className="p-5">
               <span className="text-xl font-semibold text-black">
-                ${product.price}
+                ${product && product.price}
               </span>
-              {/* Render other product details */}
+              <p className="text-green-500">{product && product.shipping}</p>
               <div className="my-3">
                 <div
                   className="px-4 py-2 inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 cursor-pointer"
