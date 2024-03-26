@@ -8,7 +8,7 @@ import Stars from "@/app/components/stars";
 import Input from "@/app/components/input";
 import { collection, query, getDocs } from "firebase/firestore";
 import Link from "next/link"; // Import Link from Next.js
-
+import LoginModal from "@/app/components/LoginModal"; // Import LoginModal component
 
 export default function Homepage() {
   const [user] = useAuthState(auth);
@@ -16,6 +16,7 @@ export default function Homepage() {
   const [cartItems, setCartItems] = useState([]);
   const [cartCount, setCartCount] = useState(0);
   const [addedProductIds, setAddedProductIds] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -63,11 +64,16 @@ export default function Homepage() {
     }
   };
 
-
-
-
   const handleSignOut = () => {
     auth.signOut();
+  };
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
   };
 
   return (
@@ -77,8 +83,6 @@ export default function Homepage() {
           <div className="flex justify-between items-center">
             <div className="flex items-center">
               <Link href="/">
-                {" "}
-                {/* Use Link instead of anchor tag */}
                 <div>
                   <img
                     src="logo192.png"
@@ -105,53 +109,58 @@ export default function Homepage() {
                 Search
               </button>
             </div>
-
             <div className="flex items-center space-x-3">
-              <Link href="/cart">
-                <div className="text-gray-700 hover:text-gray-900 border border-gray-300 rounded-md px-3 py-2">
-                  <i className="fas fa-shopping-cart mr-1"></i>
-                  Cart ({cartCount})
-                </div>
-              </Link>
-
-              {user && (
-                <div>
-                  <button
-                    onClick={handleSignOut}
-                    className="text-gray-700 hover:text-gray-900 border border-gray-300 rounded-md px-3 py-2"
-                  >
-                    <i className="fas fa-sign-out-alt mr-1"></i>
-                    Sign out
-                  </button>
-                </div>
-              )}
-              {!user && (
-                <Link href="/login">
-                  {" "}
-                  {/* Use Link instead of anchor tag */}
+              <div className="flex items-center space-x-3">
+                <Link href="/cart">
                   <div className="text-gray-700 hover:text-gray-900 border border-gray-300 rounded-md px-3 py-2">
-                    <i className="fas fa-user mr-1"></i>
-                    Sign in
+                    <i className="fas fa-shopping-cart mr-1"></i>
+                    Cart ({cartCount})
                   </div>
                 </Link>
-              )}
-              {user && (
-                <div>
-                  <div href="/profile" className="flex items-center">
-                    <img
-                      className="w-10 h-10 rounded-full mr-2"
-                      src="logo192.png"
-                      alt="User Image"
-                    />
-                    <div>
-                      <p className="text-gray-700 font-medium">
-                        {user.displayName}
-                      </p>
-                      <p className="text-gray-500 text-sm">{user.email}</p>
-                    </div>
+
+                {user ? (
+                  <div>
+                    <button
+                      onClick={handleSignOut}
+                      className="text-gray-700 hover:text-gray-900 border border-gray-300 rounded-md px-3 py-2"
+                    >
+                      <i className="fas fa-sign-out-alt mr-1"></i>
+                      Sign out
+                    </button>
                   </div>
-                </div>
-              )}
+                ) : (
+                  <div>
+                    <button
+                      onClick={handleOpenModal} // Open the login modal
+                      className="text-gray-700 hover:text-gray-900 border border-gray-300 rounded-md px-3 py-2"
+                    >
+                      <i className="fas fa-user mr-1"></i>
+                      Sign in
+                    </button>
+                    {/* Render the modal if isModalOpen is true */}
+                    {isModalOpen && <LoginModal onClose={handleCloseModal} />}
+                  </div>
+                )}
+                {user && (
+                  <div>
+                    <Link href="/profile" className="flex items-center">
+                      <img
+                        className="w-10 h-10 rounded-full mr-2"
+                        src="logo192.png"
+                        alt="User Image"
+                      />
+                      <div>
+                        <Link href="/profile">
+                          <div className="text-gray-700 font-medium">
+                            {user.displayName}
+                          </div>
+                        </Link>
+                        <p className="text-gray-500 text-sm">{user.email}</p>
+                      </div>
+                    </Link>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
 

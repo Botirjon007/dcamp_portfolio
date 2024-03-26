@@ -1,5 +1,5 @@
 // LoginPage.js
- "use client";
+"use client"
 import { useState } from "react";
 import { GoogleAuthProvider } from "firebase/auth";
 import { signInWithPopup, signInWithEmailAndPassword } from "firebase/auth";
@@ -33,8 +33,8 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
-      <div className="mt-5 mb-20 p-4 md:p-7 rounded bg-white shadow-lg max-w-md w-full">
+    <div className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center">
+      <div className="mt-5 mb-20 p-4 md:p-7 rounded bg-white bg-opacity-90 shadow-lg max-w-md w-full">
         <form className="space-y-6" onSubmit={handleLogin}>
           <h2 className="text-2xl font-bold text-center">Login</h2>
           <div className="mb-4">
