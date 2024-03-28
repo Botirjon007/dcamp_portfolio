@@ -9,6 +9,7 @@ import Input from "@/app/components/input";
 import { collection, query, getDocs } from "firebase/firestore";
 import Link from "next/link"; // Import Link from Next.js
 import LoginModal from "@/app/components/LoginModal"; // Import LoginModal component
+import CartModal from "./components/CartModal";
 
 export default function Homepage() {
   const [user] = useAuthState(auth);
@@ -17,6 +18,7 @@ export default function Homepage() {
   const [cartCount, setCartCount] = useState(0);
   const [addedProductIds, setAddedProductIds] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isCartModalOpen, setIsCartModalOpen] = useState(false);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -76,6 +78,10 @@ export default function Homepage() {
     setIsModalOpen(false);
   };
 
+   const toggleCartModal = () => {
+     setIsCartModalOpen(!isCartModalOpen); // Corrected the function to toggle modal state
+   };
+
   return (
     <div>
       <header className="container max-w-screen-xl mx-auto px-4">
@@ -94,7 +100,7 @@ export default function Homepage() {
                 </div>
               </Link>
             </div>
-            <div className="hidden md:flex items-center flex-grow">
+            <div className="hidden md:flex itw1`  ems-center flex-grow">
               <input
                 className="m-2 appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-533 h-41 "
                 type="text"
@@ -111,12 +117,27 @@ export default function Homepage() {
             </div>
             <div className="flex items-center space-x-3">
               <div className="flex items-center space-x-3">
-                <Link href="/cart">
-                  <div className="text-gray-700 hover:text-gray-900 border border-gray-300 rounded-md px-3 py-2">
-                    <i className="fas fa-shopping-cart mr-1"></i>
-                    Cart ({cartCount})
+                
+                  <div>
+                    {/* other code... */}
+                    {/* Cart button */}
+                    <div onClick={toggleCartModal}bc                   
+                      className="text-gray-700 hover:text-gray-900 border border-gray-300 rounded-md px-3 py-2"
+                      
+                    >
+                      <i className="fas fa-shopping-cart mr-1"></i>
+                      Cart ({cartCount})
+                    </div>
+
+                    {/* Cart Modal */}
+                    {isCartModalOpen && (
+                      <CartModal
+                        cartItems={cartItems}
+                        onClose={toggleCartModal}
+                      />
+                    )}
                   </div>
-                </Link>
+             
 
                 {user ? (
                   <div>
