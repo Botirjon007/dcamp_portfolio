@@ -21,6 +21,8 @@ export default function Homepage() {
   const [isCartModalOpen, setIsCartModalOpen] = useState(false);
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
+  const [searchQuery, setSearchQuery] = useState(""); // State to hold the search query
+  const [filteredProducts, setFilteredProducts] = useState([]); // State to hold filtered products
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -105,8 +107,20 @@ export default function Homepage() {
     });
 
     // Set the filtered products to the state
-    setProducts(filteredProducts);
+    setFilteredProducts(filteredProducts);
   };
+
+  const handleSearchChange = (event) => {
+    console.log(handleSearchChange)
+    const query = event.target.value.toLowerCase();
+    setSearchQuery(query);
+    const filteredProducts = originalProducts.filter((product) =>
+      product.name.toLowerCase().includes(query)
+    );
+    setFilteredProducts(filteredProducts);
+  };
+
+
   return (
     <div>
       <header className="container max-w-screen-xl mx-auto px-4">
@@ -125,11 +139,13 @@ export default function Homepage() {
                 </div>
               </Link>
             </div>
-            <div className="hidden md:flex itw1`  ems-center flex-grow">
+            <div className="hidden md:flex items-center flex-grow">
               <input
                 className="m-2 appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-533 h-41 "
                 type="text"
                 placeholder="Enter your keyword"
+                value={searchQuery}
+                onChange={handleSearchChange} // Handle search input change
                 required=""
                 style={{ height: "41px", width: "533px" }}
               />
@@ -296,7 +312,7 @@ export default function Homepage() {
                 </aside>
 
                 <main className="md:w-2/3 lg:w-3/4 px-3">
-                  {products.map((product) => (
+                  {filteredProducts.map((product) => (
                     <article
                       key={product.id}
                       className="border border-gray-200 overflow-hidden bg-white shadow-sm rounded mb-5"
