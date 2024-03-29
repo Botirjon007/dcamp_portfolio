@@ -1,4 +1,3 @@
-// pages/index.js (Homepage)
 "use client";
 import React, { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -14,11 +13,14 @@ import CartModal from "./components/CartModal";
 export default function Homepage() {
   const [user] = useAuthState(auth);
   const [products, setProducts] = useState([]);
+  const [originalProducts, setOriginalProducts] = useState([]); // State to store the original list of products
   const [cartItems, setCartItems] = useState([]);
   const [cartCount, setCartCount] = useState(0);
   const [addedProductIds, setAddedProductIds] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isCartModalOpen, setIsCartModalOpen] = useState(false);
+  const [minPrice, setMinPrice] = useState("");
+  const [maxPrice, setMaxPrice] = useState("");
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -30,6 +32,7 @@ export default function Homepage() {
           ...doc.data(),
         }));
         setProducts(productData);
+        setOriginalProducts(productData); // Store the original list of products
       } catch (error) {
         console.error("Error fetching products:", error);
       }
@@ -78,10 +81,32 @@ export default function Homepage() {
     setIsModalOpen(false);
   };
 
-   const toggleCartModal = () => {
-     setIsCartModalOpen(!isCartModalOpen); // Corrected the function to toggle modal state
-   };
+  const toggleCartModal = () => {
+    setIsCartModalOpen(!isCartModalOpen);
+  };
 
+  const handleMinPriceChange = (event) => {
+    setMinPrice(event.target.value);
+  };
+
+  const handleMaxPriceChange = (event) => {
+    setMaxPrice(event.target.value);
+  };
+
+  const handleFilterByPrice = () => {
+    // Convert minPrice and maxPrice to numbers
+    const min = parseFloat(minPrice);
+    const max = parseFloat(maxPrice);
+
+    // Filter the original list of products based on the entered price range
+    const filteredProducts = originalProducts.filter((product) => {
+      const productPrice = parseFloat(product.price);
+      return productPrice >= min && productPrice <= max;
+    });
+
+    // Set the filtered products to the state
+    setProducts(filteredProducts);
+  };
   return (
     <div>
       <header className="container max-w-screen-xl mx-auto px-4">
@@ -117,27 +142,25 @@ export default function Homepage() {
             </div>
             <div className="flex items-center space-x-3">
               <div className="flex items-center space-x-3">
-                
-                  <div>
-                    {/* other code... */}
-                    {/* Cart button */}
-                    <div onClick={toggleCartModal}bc                   
-                      className="text-gray-700 hover:text-gray-900 border border-gray-300 rounded-md px-3 py-2"
-                      
-                    >
-                      <i className="fas fa-shopping-cart mr-1"></i>
-                      Cart ({cartCount})
-                    </div>
-
-                    {/* Cart Modal */}
-                    {isCartModalOpen && (
-                      <CartModal
-                        cartItems={cartItems}
-                        onClose={toggleCartModal}
-                      />
-                    )}
+                <div>
+                  {/* Cart button */}
+                  <div
+                    onClick={toggleCartModal}
+                    bc
+                    className="text-gray-700 hover:text-gray-900 border border-gray-300 rounded-md px-3 py-2"
+                  >
+                    <i className="fas fa-shopping-cart mr-1"></i>
+                    Cart ({cartCount})
                   </div>
-             
+
+                  {/* Cart Modal */}
+                  {isCartModalOpen && (
+                    <CartModal
+                      cartItems={cartItems}
+                      onClose={toggleCartModal}
+                    />
+                  )}
+                </div>
 
                 {user ? (
                   <div>
@@ -196,6 +219,8 @@ export default function Homepage() {
                       <div className="mb-4">
                         <input
                           name="min"
+                          value={minPrice}
+                          onChange={handleMinPriceChange}
                           className="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"
                           type="number"
                           placeholder="Min"
@@ -204,13 +229,18 @@ export default function Homepage() {
                       <div className="mb-4">
                         <input
                           name="max"
+                          value={maxPrice}
+                          onChange={handleMaxPriceChange}
                           className="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"
                           type="number"
                           placeholder="Max"
                         />
                       </div>
                       <div className="mb-4">
-                        <button className="px-1 py-2 text-center w-full inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700">
+                        <button
+                          onClick={handleFilterByPrice} // Apply price filter
+                          className="px-1 py-2 text-center w-full inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700"
+                        >
                           Go
                         </button>
                       </div>
