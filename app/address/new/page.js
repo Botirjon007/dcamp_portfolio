@@ -1,4 +1,5 @@
 // AddNewAddressPage.js
+"use client"
 import React, { useState } from "react";
 
 export default function AddNewAddressPage({ onAddAddress }) {
