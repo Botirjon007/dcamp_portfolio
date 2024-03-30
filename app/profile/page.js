@@ -4,17 +4,19 @@ import React, { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../components/firebaseConfig";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
+Link
 
 // Import the AddNewAddressPage component
 import AddNewAddressPage from "./../address/new/page";
+import Link from "next/link";
+
 
 // @ts-ignore
 export default function ProfilePage() {
   const [user] = useAuthState(auth);
   const [joinedOn, setJoinedOn] = useState(null);
- const [addresses, setAddresses] = useState([]);
- const [isModalOpen, setIsModalOpen] = useState(false);
-
+  const [addresses, setAddresses] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -53,12 +55,11 @@ export default function ProfilePage() {
   };
 
   // Function to add new address
- const handleAddAddress = (newAddress) => {
-   // Update the addresses state with the new address
-   setAddresses([newAddress]);
- };
+  const handleAddAddress = (newAddress) => {
+    // Update the addresses state with the new address
+    setAddresses([newAddress]);
+  };
 
- 
   const handleLogout = () => {
     auth.signOut(); // Call the signOut method provided by Firebase auth object
   };
@@ -135,12 +136,14 @@ export default function ProfilePage() {
                 </a>
               </li>
               <li>
-                <button
-                  onClick={handleLogout}
-                  className="block px-3 py-2 text-gray-800 hover:bg-red-100 hover:text-white-500 rounded-md cursor-pointer"
-                >
-                  Logout
-                </button>
+                <Link href="/">
+                  <button
+                    onClick={handleLogout}
+                    className="block px-3 py-2 text-gray-800 hover:bg-red-100 hover:text-white-500 rounded-md cursor-pointer"
+                  >
+                    Logout
+                  </button>
+                </Link>
               </li>
             </ul>
           </aside>
