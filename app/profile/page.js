@@ -58,6 +58,11 @@ export default function ProfilePage() {
    setAddresses([newAddress]);
  };
 
+ 
+  const handleLogout = () => {
+    auth.signOut(); // Call the signOut method provided by Firebase auth object
+  };
+
   return (
     <section className="py-10">
       <div className="container max-w-screen-xl mx-auto px-4">
@@ -130,9 +135,12 @@ export default function ProfilePage() {
                 </a>
               </li>
               <li>
-                <a className="block px-3 py-2 text-red-800 hover:bg-red-100 hover:text-white-500 rounded-md cursor-pointer">
+                <button
+                  onClick={handleLogout}
+                  className="block px-3 py-2 text-gray-800 hover:bg-red-100 hover:text-white-500 rounded-md cursor-pointer"
+                >
                   Logout
-                </a>
+                </button>
               </li>
             </ul>
           </aside>
@@ -164,7 +172,7 @@ export default function ProfilePage() {
                               <i className="fa fa-map-marker-alt"></i>
                             </span>
                           </div>
-                          <figcaptio  className="text-gray-600">
+                          <figcaptio className="text-gray-600">
                             <p>
                               {address.street}s <br /> {address.city},{" "}
                               {address.state}, {address.zip}, {address.country}
@@ -184,13 +192,16 @@ export default function ProfilePage() {
             <hr className="my-4" />
             {/* Add new address button */}
             <button
-              onClick={toggleModal} onAddAddress={handleAddAddress} // Open modal on button click
+              onClick={toggleModal}
+              onAddAddress={handleAddAddress} // Open modal on button click
               className="px-4 py-2 inline-block text-blue-600 border border-gray-300 rounded-md hover:bg-gray-100"
             >
               <i className="mr-1 fa fa-plus"></i> Add new address
             </button>
             {/* Conditionally render modal */}
-            {isModalOpen && <AddNewAddressPage onAddAddress={handleAddAddress} />}
+            {isModalOpen && (
+              <AddNewAddressPage onAddAddress={handleAddAddress} />
+            )}
             <hr className="my-4" />
           </main>
         </div>
