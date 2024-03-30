@@ -1,38 +1,62 @@
-"use client"
+//  ProfilePage.js
+"use client";
 import React, { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../components/firebaseConfig";
-import { getFirestore,  doc, getDoc } from "firebase/firestore";
+import { getFirestore, doc, getDoc } from "firebase/firestore";
+
+// Import the AddNewAddressPage component
+import AddNewAddressPage from "./../address/new/page";
 
 // @ts-ignore
 export default function ProfilePage() {
-  // Wrap the hook usage with the "use client" directive
-  // This ensures it's only executed on the client side
   const [user] = useAuthState(auth);
   const [joinedOn, setJoinedOn] = useState(null);
-  // console.log("User Data:", userData);
-  console.log("Joined On:");
+ const [addresses, setAddresses] = useState([]);
+ const [isModalOpen, setIsModalOpen] = useState(false);
 
 
-   useEffect(() => {
-     const fetchUserData = async () => {
-       if (user) {
-         const db = getFirestore();
-         const userDocRef = doc(db, "users", user.uid);
-         const userDocSnapshot = await getDoc(userDocRef);
-         if (userDocSnapshot.exists()) {
-           const userData = userDocSnapshot.data();
-           setJoinedOn(userData.joinedOn);
-         }
-       }
-     };
+  useEffect(() => {
+    const fetchUserData = async () => {
+      if (user) {
+        const db = getFirestore();
+        const userDocRef = doc(db, "users", user.uid);
+        const userDocSnapshot = await getDoc(userDocRef);
+        if (userDocSnapshot.exists()) {
+          const userData = userDocSnapshot.data();
+          setJoinedOn(userData.joinedOn);
+        }
+      }
+    };
 
-     fetchUserData();
-   }, [user]);
+    fetchUserData();
+  }, [user]);
 
-  if (typeof window !== "undefined") {
-    // Code that depends on the window object
-  }
+  // useEffect(() => {
+  //   const fetchAddresses = async () => {
+  //     if (user) {
+  //       const db = getFirestore();
+  //       const addressesCollection = db
+  //         .collection("addresses")
+  //         .where("userId", "==", user.uid);
+  //       const snapshot = await addressesCollection.get();
+  //       const addressesData = snapshot.docs.map((doc) => doc.data());
+  //       setAddresses(addressesData);
+  //     }
+  //   };
+
+  //   fetchAddresses();
+  // }, [user]);
+
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
+  // Function to add new address
+ const handleAddAddress = (newAddress) => {
+   // Update the addresses state with the new address
+   setAddresses([newAddress]);
+ };
 
   return (
     <section className="py-10">
@@ -106,10 +130,7 @@ export default function ProfilePage() {
                 </a>
               </li>
               <li>
-                <a
-                  className="block px-3 py-2 text-red-800 hover:bg-red-100 hover:text-white-500 rounded-md cursor-pointer"
-                  href="#"
-                >
+                <a className="block px-3 py-2 text-red-800 hover:bg-red-100 hover:text-white-500 rounded-md cursor-pointer">
                   Logout
                 </a>
               </li>
@@ -134,6 +155,26 @@ export default function ProfilePage() {
                         ? joinedOn.toDate().toLocaleDateString()
                         : "Loading..."}
                     </p>
+                    {/* Display addresses */}
+                    {addresses.map((address, index) => (
+                      <div key={index} className="mb-5 gap-4">
+                        <figure className="w-full flex align-center bg-gray-100 p-4 rounded-md cursor-pointer">
+                          <div className="mr-3">
+                            <span className="flex items-center justify-center text-yellow-500 w-12 h-12 bg-white rounded-full shadow mt-2">
+                              <i className="fa fa-map-marker-alt"></i>
+                            </span>
+                          </div>
+                          <figcaptio  className="text-gray-600">
+                            <p>
+                              {address.street}s <br /> {address.city},{" "}
+                              {address.state}, {address.zip}, {address.country}
+                              <br />
+                              Phone no: {address.phone}
+                            </p>
+                          </figcaptio>
+                        </figure>
+                      </div>
+                    ))}
                   </>
                 ) : (
                   <p>Loading...</p>
@@ -141,29 +182,15 @@ export default function ProfilePage() {
               </div>
             </figure>
             <hr className="my-4" />
-            <a href="/address/">
-              <div className="mb-5 gap-4">
-                <figure className="w-full flex align-center bg-gray-100 p-4 rounded-md cursor-pointer">
-                  <div className="mr-3">
-                    <span className="flex items-center justify-center text-yellow-500 w-12 h-12 bg-white rounded-full shadow mt-2">
-                      <i className="fa fa-map-marker-alt"></i>
-                    </span>
-                  </div>
-                  <figcaption className="text-gray-600">
-                    <p>
-                      123 street <br /> Orlando, FL, 34456, US
-                      <br />
-                      Phone no: 1234568746
-                    </p>
-                  </figcaption>
-                </figure>
-              </div>
-            </a>
-            <a href="/address/new">
-              <button className="px-4 py-2 inline-block text-blue-600 border border-gray-300 rounded-md hover:bg-gray-100">
-                <i className="mr-1 fa fa-plus"></i> Add new address
-              </button>
-            </a>
+            {/* Add new address button */}
+            <button
+              onClick={toggleModal} onAddAddress={handleAddAddress} // Open modal on button click
+              className="px-4 py-2 inline-block text-blue-600 border border-gray-300 rounded-md hover:bg-gray-100"
+            >
+              <i className="mr-1 fa fa-plus"></i> Add new address
+            </button>
+            {/* Conditionally render modal */}
+            {isModalOpen && <AddNewAddressPage onAddAddress={handleAddAddress} />}
             <hr className="my-4" />
           </main>
         </div>
